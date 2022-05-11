@@ -2,6 +2,9 @@
 Syntax Highlighting for Lag language
 
 ## Features
+This is a testing extension  
+How to make private???
+
 ## Requirements
 
 This extension was designed with VSCode's default Dark+ theme in mind.  
