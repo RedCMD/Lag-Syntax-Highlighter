@@ -1,0 +1,97 @@
+{
+	"name": "lag-syntax-highlighter",
+	"displayName": "Lag Assembly Syntax Highlighter",
+	"publisher": "RedCMD",
+	"description": "Syntax Highlighting for Lag",
+	"version": "1.0.2",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "lag",
+				"aliases": [
+					"RedCMD.Lag"
+				],
+				"extensions": [
+					".lag"
+				],
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "ab",
+				"aliases": [
+					"RedCMD.AB"
+				]
+			},
+			{
+				"id": "cd",
+				"aliases": [
+					"RedCMD.CD"
+				]
+			},
+			{
+				"id": "ef",
+				"aliases": [
+					"RedCMD.EF"
+				]
+			},
+			{
+				"id": "gh",
+				"aliases": [
+					"RedCMD.GH"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "lag",
+				"scopeName": "source.redcmd.syntax.lag",
+				"path": "./syntaxes/lag.tmLanguage.json",
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"language": "ab",
+				"scopeName": "source.redcmd.syntax.ab",
+				"path": "./syntaxes/ab.tmLanguage.json",
+				"configuration": "./language-configuration.json",
+				"injectTo": [
+				]
+			},
+			{
+				"language": "cd",
+				"scopeName": "source.redcmd.syntax.cd",
+				"path": "./syntaxes/cd.tmLanguage.json",
+				"configuration": "./language-configuration.json",
+				"injectTo": [
+					"source.redcmd.syntax.ab"
+				],
+				"embeddedLanguages": {
+				}
+			},
+			{
+				"language": "ef",
+				"scopeName": "source.redcmd.syntax.ef",
+				"path": "./syntaxes/ef.tmLanguage.json",
+				"configuration": "./language-configuration.json",
+				"injectTo": [
+					"source.redcmd.syntax.ab"
+				],
+				"embeddedLanguages": {
+				}
+			},
+			{
+				"language": "gh",
+				"scopeName": "source.redcmd.syntax.gh",
+				"path": "./syntaxes/gh.tmLanguage.json",
+				"configuration": "./language-configuration.json",
+				"injectTo": [
+				]
+			}
+		]
+	}
+}
