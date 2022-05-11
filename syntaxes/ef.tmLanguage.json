@@ -1,0 +1,36 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"injectionSelector": "x",
+	"scopeName": "source.redcmd.syntax.ef",
+	"patterns": [
+		{ "include": "#sandbox" },
+		{ "comment": "source.redcmd.syntax.ab#c" },
+		{ "comment": "source.redcmd.syntax.ab#b" },
+		{ "comment": "source.redcmd.syntax.ab#a" },
+		{ "comment": "#i" },
+		{ "comment": "#gold" }
+	],
+	"repository": {
+		"sandbox": {
+			"begin": "\\G",
+			"end": "i",
+			"patterns": [
+				{ "include": "#gold" },
+				{ "include": "source.redcmd.syntax.ab#c" },
+				{ "comment": "source.redcmd.syntax.ab#b" },
+				{ "include": "source.redcmd.syntax.ab#a" }
+			]
+		},
+		"gold": {
+			"match": "\\s*#|@",
+			"name": "constant.character.escape"
+		},
+		"is": {
+			"patterns": [
+				{ "include": "source.redcmd.syntax.ab#c" },
+				{ "comment": "source.redcmd.syntax.ab#b" },
+				{ "include": "source.redcmd.syntax.ab#a" }
+			]
+		}
+	}
+}

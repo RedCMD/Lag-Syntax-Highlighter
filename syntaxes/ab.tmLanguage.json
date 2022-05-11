@@ -1,0 +1,36 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.redcmd.syntax.ab",
+	"patterns": [
+		{ "include": "source.redcmd.syntax.ab#e" }
+	],
+	"repository": {
+		"d": {
+			"patterns": [
+				{ "include": "source.redcmd.syntax.ab#e" }
+			]
+		},
+		"e": {
+			"match": "#",
+			"name": "keyword.control"
+		},
+		"a": {
+			"begin": "\\(",
+			"end": "\\)",
+			"captures": { "0": { "name": "invalid" } },
+			"patterns": [ { "include": "$base" } ]
+		},
+		"b": {
+			"begin": "\\[",
+			"end": "]",
+			"captures": { "0": { "name": "string" } },
+			"contentName": "x"
+		},
+		"c": {
+			"begin": "{",
+			"end": "}",
+			"captures": { "0": { "name": "keyword.control" } },
+			"contentName": "i"
+		}
+	}
+}

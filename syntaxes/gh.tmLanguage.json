@@ -1,0 +1,17 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"injectionSelector": "L:i",
+	"scopeName": "source.redcmd.syntax.ghx",
+	"patterns": [
+		{ "include": "source.redcmd.syntax.ab#c" },
+		{ "include": "source.redcmd.syntax.ab#b" },
+		{ "include": "source.redcmd.syntax.ab#a" },
+		{ "include": "#yellow" }
+	],
+	"repository": {
+		"yellow": {
+			"match": "#|@",
+			"name": "keyword"
+		}
+	}
+}

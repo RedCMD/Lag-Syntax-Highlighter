@@ -1,0 +1,138 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.redcmd.syntax.lag",
+	"patterns": [
+		{
+			"match": "(?x)   [[:123456789abcdefghijklmnopqrst:]",
+			"name": "comment strong regex"
+		},
+		{ "include2": "#json" },
+		{ "include2": "#invalid2" }
+	],
+	"repository": {
+		"test": {
+			"match": "(a\\Kax)",
+			"name": "keyword.control strong.regex",
+			"captures": {
+				"1": { "patterns": [ { "include": "#test" } ] }
+			}
+		},
+		"json": {
+			"comment": "{ ... }",
+			"begin": "^\\s*\\[",
+			"end": "(?<=])|]\\s*$",
+			"beginCaptures": { "0": { "name": "markup.underline.1" } },
+			"endCaptures": { "0": { "name": "markup.underline.2" } },
+			"patterns": [
+				{ "include": "#json-item" },
+				{ "include": "#invalid" }
+			]
+		},
+		"json-item": {
+			"comment": "\"...\": ...",
+			"begin": "\"[^\"]*\"",
+			"end": "(?<=,)|(?!\\G),|(?=[]}])",
+			"beginCaptures": { "0": { "name": "variable" } },
+			"endCaptures": { "0": { "name": "markup.underline comment" } },
+			"patterns": [
+				{
+					"begin": ":",
+					"end": "(?<=,)|(?!\\G),|(?=[]}])",
+					"beginCaptures": { "0": { "name": "markup.underline.3" } },
+					"endCaptures": { "0": { "name": "markup.underline.4" } },
+					"patterns": [
+						{ "include": "#json-dictionary" },
+						{ "include": "#json-value" },
+						{ "include": "#invalid" }
+					]
+				},
+				{ "include": "#invalid" }
+			]
+		},
+		"json-dictionary": {
+			"comment": "{ ... }",
+			"begin": "{([ds])",
+			"end": "(?<=,)|(?!\\G),|}\\1|(?<=})",
+			"beginCaptures": { "0": { "name": "markup.underline.5" } },
+			"endCaptures": { "0": { "name": "markup.underline.6" } },
+			"patterns": [
+				{
+					"begin": "\\G",
+					"end": "(?<=})|(?=})",
+					"endCaptures": { "0": { "name": "markup.underline.7" } },
+					"patterns": [
+						{ "include": "#json-item" },
+						{ "include": "#invalid" }
+					]
+				},
+				{ "include": "#invalid" }
+			]
+		},
+		"json-array": {
+			"comment": "[ ... ]",
+			"begin": "\\[",
+			"end": "(?!\\G)(?=[]},])|(?<=[]},])",
+			"beginCaptures": { "0": { "name": "markup.underline" } },
+			"endCaptures": { "0": { "name": "markup.underline" } },
+			"patterns": [
+				{
+					"begin": "\\G",
+					"end": "(?<=])",
+					"endCaptures": { "0": { "name": "markup.underline" } },
+					"patterns": [
+						{ "include": "#end-bracket-]" },
+						{ "include": "#json-item" },
+						{ "include": "#json-value2" },
+						{ "include": "#invalid" }
+					]
+				},
+				{ "include": "#invalid" }
+			]
+		},
+		"json-value": {
+			"patterns": [
+				{
+					"comment": "\"...\"",
+					"begin": "\"[^\"]*\"",
+					"end": "(?=[]},])",
+					"beginCaptures": { "0": { "name": "string" } },
+					"endCaptures": { "0": { "name": "markup.underline.8" } },
+					"contentName": "invalid.5"
+				}
+			]
+		},
+		"end-bracket": {
+			"patterns": [
+				{
+					"begin": "(?<=,)",
+					"end": "]|}|(?!]|})(?=\\S)",
+					"beginCaptures": { "0": { "name": "markup.underline" } },
+					"endCaptures": { "0": { "name": "markup.underline invalid" } },
+					"contentName": "invalid"
+				}
+			]
+		},
+		"invalid": {
+			"patterns": [
+				{
+					"begin": "(?<=,|[:\"]\\G)(?=[]}\\s,])",
+					"end": "[]},]|(?![]},])(?=\\S)",
+					"endCaptures": { "0": { "name": "markup.underline invalid.2" } }
+				},
+				{
+					"begin": "\\G(?=\\s|,)",
+					"end": ",|(?!,)(?=\\S)",
+					"endCaptures": { "0": { "name": "markup.underline invalid.1" } }
+				},
+				{
+					"match": "//.*",
+					"name": "invalid markup.underline.3"
+				},
+				{
+					"match": "\\S[^]\\[{}:,\"\\s]*",
+					"name": "invalid.4"
+				}
+			]
+		}
+	}
+}
