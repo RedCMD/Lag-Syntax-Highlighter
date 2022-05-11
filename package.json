@@ -7,6 +7,10 @@
 	"engines": {
 		"vscode": "^1.47.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RedCMD/Lag-Syntax-Highlighter.git"
+	},
 	"categories": [
 		"Programming Languages"
 	],
