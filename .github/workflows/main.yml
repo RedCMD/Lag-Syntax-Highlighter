@@ -34,4 +34,4 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          vsce package major
+          vsce publish -p ${{ secrets.VSCE_PAT }} ${{ github.event.inputs.version }} 
