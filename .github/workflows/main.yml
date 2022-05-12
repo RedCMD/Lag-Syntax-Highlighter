@@ -31,7 +31,7 @@ jobs:
         run: npm i -g vsce
 
       - name: Package
-        run: vsce package ${{ github.event.inputs.version }}
+        run: vsce package ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
         
       - name: Publish
         run: vsce publish -p ${{ secrets.VSCE_PAT }}
