@@ -31,4 +31,7 @@ jobs:
         run: npm i -g vsce
 
       - name: Publish
-        run: vsce package major
+        run: |
+          git config --global user.name "RedCMD"
+          git config --global user.email "theredcmd@gmail.com"
+          vsce package major
