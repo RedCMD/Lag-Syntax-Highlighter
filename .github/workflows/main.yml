@@ -3,27 +3,15 @@ name: Publish Extension
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      version:
+        description: 'Version'
         required: true
-        default: 'warning' 
+        default: ''
         type: choice
         options:
-        - info
-        - warning
-        - debug 
-      print_tags:
-        description: 'True to print to STDOUT'
-        required: true 
-        type: boolean 
-      tags:
-        description: 'Test scenario tags'
-        required: true 
-        type: string
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true 
+        - patch
+        - minor
+        - major
 
 jobs:
   release:
@@ -43,4 +31,4 @@ jobs:
         run: npm i -g vsce
 
       - name: Publish
-        run: vsce publish -p ${{ secrets.VSCE_PAT }}
+        run: vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
