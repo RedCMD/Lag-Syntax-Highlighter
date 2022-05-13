@@ -1,0 +1,16 @@
+name: Commit to ChangeLog
+
+on:
+  push:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      uses: DamianReeves/write-file-action
+      with:
+        path: ${{ env.home}}/changelog.md
+        contents: |
+          echo "Hello World!"
+        write-mode: append
