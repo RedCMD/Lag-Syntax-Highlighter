@@ -1,40 +1,40 @@
-name: Create file
-
-on: [push]
+on:
+  release:
+    type: published
 
 jobs:
-  build:
+  comment:
     runs-on: ubuntu-latest
     steps:
-    - name: Create file
-      run: |
-        printf "Hello\nWorld\n" > hw.txt
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - name: Update version
+        id: version
+        run: |
+          echo "GITHUB_REF is a tag you set for the release"
+          echo "Your GitHub ref: ${GITHUB_REF}"
+          VERSION=`echo "${GITHUB_REF}" | cut -f 3 -d "/"`
+          echo "Preparing version ${VERSION}"
+          echo "__version__ = \"${VERSION}\"" > __version__.py
+          echo "##[set-output name=version;]$(echo ${VERSION})"
+      - uses: vemel/update-changelog@0.0.1
+        id: changelog
+        with:
+          version: ${{ steps.version.outputs.version }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          commit-message: Release ${{ steps.version.outputs.version }}
+          labels: release, bot
+          title: "Release ${{ steps.version.outputs.version }}"
+          body: |
+            # Release ${{ steps.version.outputs.version }}
 
-    - name: Create file
-      run: |
-        echo First        > other.txt
-        echo Second Line >> other.txt
-        echo Third       >> other.txt
+            Merge this PR to update your version and changelog!
 
+            ## Included Pull Requests
 
-    - name: Show file content
-      run: |
-        pwd
-        ls -la
-        cat hw.txt
-        cat other.txt
-
-
-    - name: Create directory and create file in homedir
-      run: |
-        ls -la ~/
-        mkdir ~/.zorg
-        echo First        > ~/.zorg/home.txt
-        echo Second Line >> ~/.zorg/home.txt
-        echo Third       >> ~/.zorg/home.txt
-        ls -la ~/.zorg/
-
-    - name: Show file content
-      run: |
-        ls -la ~/
-        cat ~/.zorg/home.txt
+            ${{ steps.changelog.outputs.pulls_list_md }}
