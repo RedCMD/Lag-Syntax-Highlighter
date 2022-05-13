@@ -42,4 +42,4 @@ jobs:
           # such as environment variable or from output of another action
           release_version: ${{ github.event.inputs.release_version }}
           # Optional
-          github_token: ${{ secrets.GITH
+          github_token: ${{ secrets.GITHUB_TOKEN }}
