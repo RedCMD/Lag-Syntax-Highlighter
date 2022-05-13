@@ -1,16 +1,40 @@
-name: Commit to ChangeLog
+name: Create file
 
-on:
-  push:
+on: [push]
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      uses: DamianReeves/write-file-action
-      with:
-        path: ${{ env.home}}/changelog.md
-        contents: |
-          echo "Hello World!"
-        write-mode: append
+    - name: Create file
+      run: |
+        printf "Hello\nWorld\n" > hw.txt
+
+    - name: Create file
+      run: |
+        echo First        > other.txt
+        echo Second Line >> other.txt
+        echo Third       >> other.txt
+
+
+    - name: Show file content
+      run: |
+        pwd
+        ls -la
+        cat hw.txt
+        cat other.txt
+
+
+    - name: Create directory and create file in homedir
+      run: |
+        ls -la ~/
+        mkdir ~/.zorg
+        echo First        > ~/.zorg/home.txt
+        echo Second Line >> ~/.zorg/home.txt
+        echo Third       >> ~/.zorg/home.txt
+        ls -la ~/.zorg/
+
+    - name: Show file content
+      run: |
+        ls -la ~/
+        cat ~/.zorg/home.txt
