@@ -33,8 +33,8 @@ jobs:
           config_file: changelog-ci-config.json
           # Optional, This will be used to configure git
           # defaults to `github-actions[bot]` if not provided.
-          committer_username: 'test'
-          committer_email: 'test@test.com'
+          committer_username: 'RedCMD'
+          committer_email: 'theredcmd@gmail.com'
           # Optional, only required when you want to run Changelog CI 
           # on an event other than `pull_request` event.
           # In this example `release_version` is fetched from `workflow_dispatch` events input.
