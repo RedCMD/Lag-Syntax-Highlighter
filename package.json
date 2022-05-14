@@ -3,7 +3,7 @@
 	"displayName": "Lag Assembly Syntax Highlighter",
 	"publisher": "RedCMD",
 	"description": "Syntax Highlighting for Lag",
-	"version": "3.3.0",
+	"version": "4.0.0",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
@@ -93,5 +93,15 @@
 				"injectTo": []
 			}
 		]
+	},
+	"__metadata": {
+		"id": "4a6a34e3-1bcd-4782-ab35-d298df305cba",
+		"publisherId": "6d229866-9775-4c10-9f86-f22eaa70eb66",
+		"publisherDisplayName": "RedCMD",
+		"targetPlatform": "undefined",
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1652492425470
 	}
 }
