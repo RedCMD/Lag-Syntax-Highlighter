@@ -37,4 +37,4 @@ jobs:
           npm version ${{ github.event.inputs.version }} -m "[RELEASE] Publish New Version %s"
           vsce package
           git push
-          vsce ${{ github.event.inputs.output }} -p ${{ secrets.VSCE_PAT }}
+          vsce publish -p ${{ secrets.VSCE_PAT }}
