@@ -12,14 +12,6 @@ on:
         - patch
         - minor
         - major
-      output:
-        description: 'Output'
-        required: true
-        default: 'publish'
-        type: choice
-        options:
-        - publish
-        - package
 
 jobs:
   release:
@@ -43,5 +35,6 @@ jobs:
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           npm version ${{ github.event.inputs.version }} -m "[RELEASE] Publish New Version %s"
+          vsce package
           git push
           vsce ${{ github.event.inputs.output }} -p ${{ secrets.VSCE_PAT }}
