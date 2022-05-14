@@ -30,7 +30,8 @@
 				"id": "ab",
 				"aliases": [
 					"RedCMD.AB"
-				]
+				],
+				"configuration": "./2-language-configuration.json"
 			},
 			{
 				"id": "cd",
@@ -56,14 +57,14 @@
 				"language": "lag",
 				"scopeName": "source.redcmd.syntax.lag",
 				"path": "./syntaxes/lag.tmLanguage.json",
-				"configuration": "./language-configuration.json"
+				"embeddedLanguages": {
+					"meta.embedded.block.ab": "ab"
+				}
 			},
 			{
 				"language": "ab",
 				"scopeName": "source.redcmd.syntax.ab",
-				"path": "./syntaxes/ab.tmLanguage.json",
-				"configuration": "./language-configuration.json",
-				"injectTo": []
+				"path": "./syntaxes/ab.tmLanguage.json"
 			},
 			{
 				"language": "cd",

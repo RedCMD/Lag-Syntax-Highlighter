@@ -1,3 +1,5 @@
+{}[]""::
+begin
 {
 	"test": "test",
 	"test": "test",
@@ -6,7 +8,11 @@
 	"test": "test",
 	"test": "test"
 }
+ab
+###
 [123456789abcdefghijklmnop::]
+{}
+[]
 °
 abcde
 E
@@ -22,7 +28,7 @@ E]
 [[
 []
 ][
-
+end
 [ "": {d "": {s "" }}d ]
 
 test

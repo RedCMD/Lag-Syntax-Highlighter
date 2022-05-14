@@ -1,15 +1,67 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.redcmd.syntax.lag",
+	"injections": {
+		"ab": {
+			"patterns": [
+				{ "include": "#ab" },
+				{ "include": "#ab-" },
+				{ "include": "#cd" },
+				{ "include": "#ef" }
+			]
+		},
+		"L:cd": {
+			"patterns": [
+				{ "include": "#abs" },
+				{ "include": "#cds" },
+				{ "include": "#cd-" },
+				{ "include": "#efs" }
+			]
+		}
+	},
 	"patterns": [
 		{
-			"match": "(?x)   [[:123456789abcdefghijklmnopqrst:]",
-			"name": "comment strong regex"
+			"matchs": "(?x)   [[:123456789abcdefghijklmnopqrst:]",
+			"names": "comment strong regex"
 		},
 		{ "include2": "#json" },
-		{ "include2": "#invalid2" }
+		{ "include2": "#invalid2" },
+		{ "include": "#ab" },
+		{ "include": "#cd" },
+		{ "include": "#ef" },
+		{
+			"begin": "begin",
+			"end": "end",
+			"contentName": "meta.embedded.block.ab",
+			"patterns": [ { "include": "source.redcmd.syntax.ab" } ]
+		}
 	],
 	"repository": {
+		"ab": {
+			"begin": "{",
+			"end": "}",
+			"captures": { "0": { "name": "support.type strong" } },
+			"contentName": "ab"
+		},
+		"ab-": {
+			"match": "#",
+			"name": "support.type strong"
+		},
+		"cd": {
+			"begin": "\\[",
+			"end": "]",
+			"captures": { "0": { "name": "keyword strong" } },
+			"contentName": "cd"
+		},
+		"cd-": {
+			"match": "#",
+			"name": "keyword strong"
+		},
+		"ef": {
+			"begin": "\\(",
+			"end": "\\)",
+			"captures": { "0": { "name": "variable strong" } }
+		},
 		"test": {
 			"match": "(a\\Kax)",
 			"name": "keyword.control strong.regex",
