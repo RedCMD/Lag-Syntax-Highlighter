@@ -42,4 +42,4 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          vsce ${{ github.event.inputs.output }} -p ${{ secrets.VSCE_PAT }} ${{ github.event.inputs.version }} 
+          vsce ${{ github.event.inputs.output }} ${{ github.event.inputs.version }} 
