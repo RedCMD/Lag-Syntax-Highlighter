@@ -40,5 +40,4 @@ jobs:
         
       - name: Increment version on Github
         run: |
-          npm version -m "[RELEASE] Publish new version %s"
           git push
