@@ -30,14 +30,9 @@ jobs:
       - name: Install vsce
         run: npm i -g vsce
 
-      - name: Configure Account
+      - name: Publish
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          
-      - name: Publish to Marketplace
-        run:  vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
-        
-      - name: Increment version on Github
-        run: |
+          vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
           git push
