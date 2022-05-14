@@ -34,6 +34,6 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          git pull
+          git push
           vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
           git push
