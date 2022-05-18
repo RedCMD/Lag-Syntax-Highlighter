@@ -1,4 +1,132 @@
 {
+	,    ,,, ,,,,
+	"test": "test",
+	"test": "test",
+	"test": "test"
+	"test": "test",
+	"test": "test",, ,,, ,,,
+	"test": "test",
+	"test": "test,
+	"test": "test",
+	"test": "test"
+		
+}
+
+}
+}
+mM
+.keyword
+ keyword 
+..%.te.xt.l
+${0:/upcase}
+begin
+{
+	"test": "test",
+	"test": "test",
+	"test": "test",
+	"test": "test",
+	"test": [ "": "" ],
+	"test": { "":,"": {  } },
+	"test": "test",
+	"test": "test"
+}
+ab
+###
+[123456789abcdefghijklmnop::]
+{}
+[]
+°
+abcde
+E
+^
+:
+#
+]
+[
+:]
+a]
+E]
+]]
+[[
+[]
+][
+end
+[ "": {d "": {s "" }}d ]
+
+test
+}d ]
+
+[ "": { "":"" } ]
+
+{
+	]"test": "test",
+	"test"]: "test",
+	"test":] "test",
+	"test": "test"],
+	"test": "test",]
+	"test": "test"
+}
+	"test": "test",
+	"test": "test",
+	"test": "test",
+	"test": "test"
+}
+{
+	"test": []"test":"test"],
+	"test": ["test"]:"test"],
+	"test": ["test":]"test"],
+	"test": ["test":"test"],
+	"test": ["test":"test"],
+	"test": ["test":"test"]
+}
+}
+{}
+{,}
+{"}
+{""}
+{"":}
+{"":"}
+{"":""}
+{,"":""}
+{"",:""}
+{"":,""}
+{"":"",}
+{"":"","":""}
+
+{
+	,
+}
+
+
+
+
+abc
+d
+e
+ABC
+_
+:
+^
+|
+[
+]
+#
+a]
+:]
+;]
+]]
+[]
+][
+\\
+\:]
+\]
+
+
+
+
+
+
+{
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.redcmd.syntax.lag",
 	"injections": {
@@ -31,7 +159,7 @@
 			"matchs": "(?x)   [[:123456789abcdefghijklmnopqrst:]",
 			"names": "comment strong regex"
 		},
-		{ "includes": "#json" },
+		{ "include": "#json" },
 		{ "include2": "#invalid2" },
 		{ "include2": "#ab" },
 		{ "include2": "#cd" },
@@ -84,9 +212,8 @@
 			"endCaptures": { "0": { "name": "markup.underline" } },
 			"patterns": [
 				{
-					"begin": "(?=\")",
-					"end": ",(?!\\s*[]}])|(?=[]}])",
-					"endCaptures": { "0": { "name": "markup.underline" } },
+					"begin": "\\G|(?=,)",
+					"end": "(?!\\G)(?=[]},])|(?!\\G)(?<=[]}\"]|true|false|null|\\d)",
 					"patterns": [
 						{ "include": "#json-item" }
 					]
@@ -95,26 +222,22 @@
 		},
 		"json-item": {
 			"comment": "\"...\": ...",
-			"begin": "\\G\"(.*?(?<!\\\\)\\\\{2}*|.*)\"",
-			"end": "\\G(?=([]},]))|(?=[]},])",
+			"begin": "\"(.*?(?<!\\\\)\\\\{2}*|.*)\"",
+			"ends": "\\G(?=([]},]))|(?!\\G)(?<=[]}\"]|true|false|null|\\d)",
+			"end": "\\G(?=([]},]))|(?=[]},])|(?!\\G)(?<=[]}\"]|true|false|null|\\d)",
 			"beginCaptures": { "0": { "name": "variable" } },
 			"endCaptures": { "1": { "name": "comment markup.strikethrough" } },
 			"patterns": [
 				{
 					"begin": ":",
-					"end": "\\G(?=([]},]))|(?=[]},])",
+					"end": "\\G(?=([]},]))|(?=[]},])|(?<=[]}\"]|true|false|null|\\d)",
+					"ends": "\\G(?=([]},]))|(?<=[]}\"]|true|false|null|\\d)",
 					"beginCaptures": { "0": { "name": "markup.underline" } },
 					"endCaptures": { "1": { "name": "comment markup.strikethrough" } },
 					"patterns": [
-						{
-							"begin": "(?=\"|true|false|null|-?\\d)",
-							"end": "(?=[]},])",
-							"patterns": [
-								{ "include": "#json-dictionarys" },
-								{ "include": "#json-arrays" },
-								{ "include": "#json-value" }
-							]
-						}
+						{ "include": "#json-dictionarys" },
+						{ "include": "#json-arrays" },
+						{ "include": "#json-value" }
 					]
 				}
 			]
@@ -145,7 +268,7 @@
 			"patterns": [
 				{
 					"comment": "\"...\"",
-					"match": "\\G\"(.*?(?<!\\\\)\\\\{2}*|.*)\"",
+					"match": "\"(.*?(?<!\\\\)\\\\{2}*|.*)\"",
 					"name": "string.tm",
 					"captures": {
 						"1": {
@@ -168,11 +291,11 @@
 					}
 				},
 				{
-					"match": "\\G(?>true|false|null)",
+					"match": "true|false|null",
 					"name": "keyword.control.tm"
 				},
 				{
-					"match": "\\G-?\\d+",
+					"match": "-?\\d+",
 					"name": "constant.numeric.tm"
 				}
 			]
@@ -194,10 +317,22 @@
 		"invalid-brackets-commas": {
 			"patterns": [
 				{
-					"begin": "(?>(?<=(,))|\\G(?<=[]}\":]))(?=[]},\\s])",
-					"end": "((?((?!\\1))(?=([]},]))|(?=([]}]))|,))|(?=\\S)",
+					"comment": "This could be removed. But I guess erroring the comma is better than the bracket. Not multi-line tho",
+					"match": "(,)\\s*(?=[]}])",
+					"captures": { "1": { "name": "invalid markup.underline" } }
+				},
+				{
+					"comment": "Why are valid commas handled here?  Because I was lazy...",
+					"begin": ",|\\G(?<=[]}\":])(?=[]},\\s])",
+					"end": "(?=([]},])|\\S)",
 					"beginCaptures": { "0": { "name": "markup.underline" } },
-					"endCaptures": { "2": { "name": "invalid markup.strikethrough" } },
+					"endCaptures": {
+						"1": {
+							"comment": "Capture groups inside look-arounds can apply scope-names; who knew ¯\\_(ツ)_/¯",
+							"name": "invalid markup.strikethrough"
+						}
+					},
+					"comment": "\"whitespace\" stops infinite recursion from \"injections\"",
 					"contentName": "whitespace"
 				}
 			]

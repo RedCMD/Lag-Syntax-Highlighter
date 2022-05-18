@@ -53,6 +53,16 @@
 				"aliases": [
 					"RedCMD.GH"
 				]
+			},
+			{
+				"id": "lang-con",
+				"aliases": [
+					"language.config"
+				],
+				"filenames": [
+					"lang-con"
+				],
+				"configuration": "./lang-con.language-configuration.json"
 			}
 		],
 		"grammars": [
@@ -95,6 +105,12 @@
 				"path": "./syntaxes/gh.tmLanguage.json",
 				"configuration": "./language-configuration.json",
 				"injectTo": []
+			},
+			{
+				"language": "lang-con",
+				"scopeName": "source.redcmd.syntax.lang-con",
+				"path": "./syntaxes/lang-con.tmLanguage.json",
+				"configuration": "./lang-con.language-configuration.json"
 			}
 		]
 	},

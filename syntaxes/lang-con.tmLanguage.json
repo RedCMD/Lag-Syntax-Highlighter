@@ -1,0 +1,27 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.redcmd.syntax.lang-con",
+	"patterns": [
+		{
+			"match": "\\$",
+			"name": "markup.italic variable"
+		},
+		{
+			"match": "{|}",
+			"name": "variable"
+		},
+		{
+			"match": "\\dx?\\d*",
+			"name": "constant.numeric"
+		},
+		{
+			"match": "\\\\.",
+			"name": "constant.character.escape"
+		},
+		{
+		}
+	],
+	"repository": {
+		
+	}
+}
