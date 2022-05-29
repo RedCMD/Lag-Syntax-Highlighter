@@ -35,10 +35,8 @@ jobs:
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           if [[ $(git diff --stat) != '' ]]; then
-            echo 'dirty'
-          else
-            echo 'clean'
-          fi
-          git add .
+            echo 'working directory dirty. must cleanup first'
+            git add .
+            git commit -m "Publish to npm %s"
           vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
           git push
