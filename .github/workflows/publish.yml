@@ -38,5 +38,6 @@ jobs:
             echo 'working directory dirty. must cleanup first'
             git add .
             git commit -m "Publish to npm %s"
+          fi
           vsce publish ${{ github.event.inputs.version }} -p ${{ secrets.VSCE_PAT }}
           git push
