@@ -6,10 +6,10 @@
 		// "blockComment": [ "\"comment\": \"", "\"" ]
 		// comments are allowed
 	},
+	
 	"colorizedBracketPairs": [
-		[
-			"[",
-			"]jsjssss"
-		]
+		[ "{", "}" ],
+		[ "<", ">" ],
+		[ "%", "&" ]
 	]
 }
