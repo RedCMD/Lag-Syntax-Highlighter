@@ -1,0 +1,30 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.redcmd.syntax.test_regex",
+	"patterns": [
+		{
+			"begin": "^\"",
+			"end": "\"",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.tag"
+				}
+			},
+			"contentName": "meta.embedded.block.regexp.tmLanguage",
+			"patterns": [ { "include": "source.syntax.regexp.tmLanguage" } ]
+		},
+		{
+			"begin": "\"",
+			"end": "\"",
+			"name": "string"
+		},
+		{
+			"match": "^//.+",
+			"name": "comment markup.strikethrough"
+		},
+		{
+			"match": "//.+",
+			"name": "comment"
+		}
+	]
+}

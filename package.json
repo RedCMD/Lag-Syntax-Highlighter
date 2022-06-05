@@ -20,6 +20,16 @@
 	"contributes": {
 		"languages": [
 			{
+				"id": "test_regex",
+				"aliases": [
+					"RedCMD.Test"
+				],
+				"extensions": [
+					".test_regex"
+				],
+				"configuration": "./language-configuration.json"
+			},
+			{
 				"id": "lag",
 				"aliases": [
 					"RedCMD.Lag"
@@ -69,6 +79,14 @@
 			}
 		],
 		"grammars": [
+			{
+				"language": "test_regex",
+				"scopeName": "source.redcmd.syntax.test_regex",
+				"path": "./syntaxes/test_regex.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.regexp.tmLanguage": "regex-tmLanguage"
+				}
+			},
 			{
 				"language": "lag",
 				"scopeName": "source.redcmd.syntax.lag",
