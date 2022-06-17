@@ -9,9 +9,9 @@ on:
         default: 'minor'
         type: choice
         options:
-        - patch
-        - minor
-        - major
+        - patch +X.X.1
+        - minor +X.1.0
+        - major +1.0.0
 
 jobs:
   release:
