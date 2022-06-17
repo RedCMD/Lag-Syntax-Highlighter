@@ -6,12 +6,12 @@ on:
       version:
         description: 'Version'
         required: true
-        default: 'minor'
+        default: 'minor x.1.0'
         type: choice
         options:
-        - patch +X.X.1
-        - minor +X.1.0
-        - major +1.0.0
+        - patch x.x.1
+        - minor x.1.0
+        - major 1.0.0
 
 jobs:
   release:
