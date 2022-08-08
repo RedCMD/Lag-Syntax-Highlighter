@@ -3,7 +3,30 @@
 	"scopeName": "source.redcmd.syntax.lang-con",
 	"patterns": [
 		{
-			"match": "\\$",
+			"begin": "a",
+			"while": "^.?",
+			"patterns": [
+				{
+					"match": "\\Ge",
+					"name": "comment"
+				},
+				{
+					"begin": "c",
+					"end": "b",
+					"patterns": [
+						{
+							"include": "$self"
+						},
+						{
+							"match": "d",
+							"name": "comment"
+						}
+					]
+				}
+			]
+		},
+		{
+			"match": "\\G\\$",
 			"name": "markup.italic variable"
 		},
 		{
