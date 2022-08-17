@@ -5,8 +5,10 @@ module.exports = grammar({
 	],
 
 	rules: {
-		document: $ => $._value,
-
+		source_file: $ => repeat1(
+			$.object,
+		),
+		
 		_value: $ => choice(
 			$.object,
 			$.array,
@@ -18,7 +20,7 @@ module.exports = grammar({
 		),
 
 		pair: $ => seq(
-			field("key", choice($.string, $.number)),
+			field("key", $.string),
 			":",
 			field("value", $._value)
 		),
@@ -41,7 +43,6 @@ module.exports = grammar({
 			'\\',
 			/(\"|\\|\/|b|f|n|r|t|u)/
 		)),
-
 	}
 });
 
