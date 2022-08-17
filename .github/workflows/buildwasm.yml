@@ -1,6 +1,7 @@
 name: buildwasm
 
 on:
+  push:
   workflow_dispatch:
   
 jobs:
