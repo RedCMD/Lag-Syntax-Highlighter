@@ -18,3 +18,5 @@ jobs:
       - run: ls -a
       - run: ./node_modules/tree-sitter-cli/tree-sitter generate
       - run: ./node_modules/tree-sitter-cli/tree-sitter parse example-file
+      - run: ./node_modules/tree-sitter-cli/tree-sitter build-wasm
+      - run: ls -a
