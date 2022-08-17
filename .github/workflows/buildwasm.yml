@@ -1,0 +1,28 @@
+name: buildwasm
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: git clone https://github.com/emscripten-core/emsdk.git
+      - run: cd emsdk && ./emsdk install latest && ./emsdk activate latest
+      - run: cd emsdk && cat ./emsdk_env.sh && source ./emsdk_env.sh
+      - run: cd ../ && mkdir tree-sitter-your_language && cd tree-sitter-your_language
+      - run: npm --save-dev install tree-sitter-cli
+      - run: echo "module.exports = grammar({ name:'your_language', rules:{ source_file:$ => 'hello' }});" > grammar.js
+      - run: echo 'hello' > example-file
+      - run: ls -a
+      - run: ./node_modules/tree-sitter-cli/tree-sitter generate
+      - run: ./node_modules/tree-sitter-cli/tree-sitter parse example-file
+      - run: ./node_modules/tree-sitter-cli/tree-sitter build-wasm
+      - run: ls -a
+      - run: |
+          git config --global user.name 'RedCMD'
+          git config --global user.email 'theredcmd@gmail.com'
+          git add tree-sitter-your_language.wasm
+          git commit -am "buildwasm"
+          git push
