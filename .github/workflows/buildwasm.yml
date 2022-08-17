@@ -24,6 +24,6 @@ jobs:
       - run: |
           git config --global user.name 'RedCMD'
           git config --global user.email 'theredcmd@gmail.com'
-          git add tree-sitter-json-tm.wasm
+          git add *.wasm
           git commit -am "buildwasm"
           git push
