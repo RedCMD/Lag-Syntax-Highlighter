@@ -1,9 +1,11 @@
 # Lag-Syntax-Highlighter
 Syntax Highlighting for Lag language
 
+
 ## Features
+This repo is for testing github features only. Please ignore
 This is a testing extension  
-How to make private???
+How to make private??? without disabling publishing
 
 ## Requirements
 
