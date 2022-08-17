@@ -43,6 +43,8 @@ module.exports = grammar({
 			'\\',
 			/(\"|\\|\/|b|f|n|r|t|u)/
 		)),
+		
+		_whitespace: $ => /[^\S\r\n]/,
 	}
 });
 
