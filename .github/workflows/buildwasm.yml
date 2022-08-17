@@ -2,9 +2,18 @@ name: buildwasm
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        default: 'minor x.1.0'
+        type: choice
+        options:
+        - patch x.x.1
+        - minor x.1.0
+        - major 1.0.0
   
 jobs:
-  release :
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
