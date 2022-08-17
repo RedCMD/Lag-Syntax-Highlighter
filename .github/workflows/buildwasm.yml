@@ -20,7 +20,7 @@ jobs:
       - run: git clone https://github.com/emscripten-core/emsdk.git
       - run: cd emsdk && ./emsdk install latest && ./emsdk activate latest
       - run: cd emsdk && cat ./emsdk_env.sh && source ./emsdk_env.sh
-      - run: cd ../ && mkdir tree-sitter-your_language && cd tree-sitter-yout_language
+      - run: cd ../ && mkdir tree-sitter-your_language && cd tree-sitter-your_language
       - run: npm install tree-sitter-cli
       - run: echo "module.exports = grammar({ name:'your_language', rules:{ source_file:$ => 'hello' }});" > example-file
       - run: tree-sitter generate
