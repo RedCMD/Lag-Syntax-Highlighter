@@ -1,4 +1,4 @@
-name: BuildWASM
+name: buildwasm
 
 on:
   workflow_dispatch:
