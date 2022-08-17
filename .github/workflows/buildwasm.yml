@@ -2,6 +2,8 @@ name: buildwasm
 
 on:
   push:
+    paths:
+     - '**.grammar.js'
   workflow_dispatch:
   
 jobs:
