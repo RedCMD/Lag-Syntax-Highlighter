@@ -15,7 +15,7 @@ jobs:
       - run: npm install tree-sitter-cli
       - run: echo "module.exports = grammar({ name:'your_language', rules:{ source_file:$ => 'hello' }});" > example-file
       - run: ls -a
-      - run: cd node_modules && ls -a
+      - run: cd node_modules/tree-sitter-cli && ls -a
       - run: cd ../
-      - run: ./node_modules/tree-sitter/tree-sitter generate
+      - run: ./node_modules/tree-sitter-cli/tree-sitter generate
       - run: tree-sitter parse example-file
