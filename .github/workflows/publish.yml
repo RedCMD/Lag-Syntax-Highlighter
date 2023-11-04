@@ -18,11 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
+      - uses: actions/checkout@v3
 
       - name: Install the dependencies
         run: npm i
@@ -32,7 +28,7 @@ jobs:
 
       - name: Publish
         run: |
-          git config --global user.name "RedCMDs"
+          git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           if [[ $(git diff --stat) != '' ]]; then
             echo 'working directory dirty. must cleanup first'
