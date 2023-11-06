@@ -1,0 +1,79 @@
+{
+	"name": "swift-raw-strings",
+	"scopeName": "source.redcmd.syntax.swift-raw-strings",
+	"patterns": [ { "include": "#swift-raw-strings" } ],
+	"repository": {
+		"swift-raw-strings": {
+			"begin": "(#+)\"",
+			"end": "\"\\1(#*)",
+			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.raw.swift" } },
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.raw.swift" },
+				"1": { "name": "invalid.illegal.extra-closing-delimiter.swift" }
+			},
+			"name": "string.quoted.double.single-line.raw.swift",
+			"patterns": [
+				{
+					"begin": "(?<=(?>[^#]|^)(#+)\")\\G(?!\\\\\\1(?!#))",
+					"end": "(?=\\\\\\1(?!#))|(?=\"\\1)",
+					"patterns": [
+						{
+							"name": "invalid.illegal.returns-not-allowed.swift",
+							"match": "\\r|\\n"
+						}
+					]
+				},
+				{
+					"begin": "(?=\\\\(#+)(?!#))",
+					"end": "(?!\\G)(?=\\\\\\1(?!#))|(?=\"\\1)",
+					"patterns": [
+						{
+							"name": "invalid.illegal.returns-not-allowed.swift",
+							"match": "\\r|\\n"
+						},
+						{ "include": "#literals-string-raw-string-guts" }
+					]
+				}
+			]
+		},
+		"literals-string-raw-string-guts": {
+			"comment": "the same as #string-guts but with # in escapes",
+			"patterns": [
+				{
+					"name": "constant.character.escape.swift",
+					"match": "\\G\\\\#+[0\\\\tnr\"']"
+				},
+				{
+					"name": "constant.character.escape.unicode.swift",
+					"match": "\\G\\\\#+u\\{[0-9a-fA-F]{1,8}\\}"
+				},
+				{
+					"contentName": "source.swift",
+					"name": "meta.embedded.line.swift",
+					"begin": "\\G\\\\#+\\(",
+					"end": "(\\))",
+					"beginCaptures": { "0": { "name": "punctuation.section.embedded.begin.swift" } },
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.swift" },
+						"1": { "name": "source.swift" }
+					},
+					"patterns": [
+						{
+							"comment": " --> $self <-- ",
+							"include": "source.swift"
+						},
+						{
+							"comment": "Nested parens",
+							"begin": "\\(",
+							"end": "\\)"
+						}
+					]
+				},
+				{
+					"name": "invalid.illegal.escape-not-recognized",
+					"match": "\\G\\\\#+."
+				}
+			]
+		}
+	}
+}

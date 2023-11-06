@@ -1,0 +1,29 @@
+a
+
+b##"\##t\###\##t\###\##z\#
+
+c
+\##t
+d
+\##z
+e
+\##(
+func foo<T>(x: T) async throws -> Int where T: Equatable {}
+)
+f
+\#
+g
+\##u{0123}
+h
+\###
+i
+
+
+j"##
+
+k
+
+##"  \##(this is interpolated) \#(but this is not interpolated) "##
+
+#####" \#####t \####t \###t \##t \#t \t "### "########
+
