@@ -86,6 +86,16 @@
 					"swift-raw-strings"
 				],
 				"configuration": "./swift-raw-strings.language-configuration.json"
+			},
+			{
+				"id": "nesting",
+				"aliases": [
+					"nesting"
+				],
+				"filenames": [
+					"nesting"
+				],
+				"configuration": "./nesting.language-configuration.json"
 			}
 		],
 		"grammars": [
@@ -148,6 +158,12 @@
 				"scopeName": "source.redcmd.syntax.swift-raw-strings",
 				"path": "./syntaxes/swift-raw-strings.tmLanguage.json",
 				"configuration": "./swift-raw-strings.language-configuration.json"
+			},
+			{
+				"language": "nesting",
+				"scopeName": "source.redcmd.syntax.nesting",
+				"path": "./syntaxes/nesting.tmLanguage.json",
+				"configuration": "./nesting.language-configuration.json"
 			}
 		]
 	},

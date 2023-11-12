@@ -1,0 +1,145 @@
+{
+	"name": "nesting",
+	"scopeName": "source.redcmd.syntax.nesting",
+	"patterns": [ { "include": "#a" } ],
+	"repository": {
+		"a": {
+			"match": "a(((a+)))",
+			"captures": {
+				"1": { "patterns": [ { "include": "#a" } ] },
+				"2": { "patterns": [ { "include": "#a" } ] },
+				"3": { "patterns": [ { "include": "#a" } ] }
+			}
+		},
+		"aa": {
+			"begin": "a",
+			"end": "(?!a)",
+			"patterns": [
+				{
+					"begin": "(?=a)",
+					"end": "(?!a)",
+					"patterns": [ { "include": "#aa" } ]
+				},
+				{
+					"begin": "(?=a)",
+					"end": "(?!a)",
+					"patterns": [ { "include": "#aa" } ]
+				},
+				{ "include": "#aa" }
+			]
+		},
+		"typename": {
+			"match": "\\w+(((<\\g<0>>)))?",
+			"captures": {
+				"1": { "patterns": [ { "include": "#typename" } ] },
+				"2": { "patterns": [ { "include": "#typename" } ] },
+				"3": { "patterns": [ { "include": "#typename" } ] }
+			}
+		},
+		"abc": {
+			"match": "((a)(b(c)))",
+			"captures": {
+				"s1": {
+					"patterns": [
+						{
+							"match": "a",
+							"name": "comment"
+						}
+					]
+				},
+				"2": {
+					"patterns": [
+						{
+							"match": "a",
+							"name": "keyword"
+						}
+					]
+				},
+				"s3": {
+					"patterns": [
+						{
+							"match": "b",
+							"name": "keyword.control"
+						}
+					]
+				},
+				"4": {
+					"patterns": [
+						{
+							"match": "c",
+							"name": "entity.name.scope-resolution"
+						}
+					]
+				}
+			}
+		},
+		"test2": {
+			"match": "([\\w:]++)(<\\g<0>>)*+",
+			"captures": {
+				"1": { "name": "keyword $1" },
+				"2": { "patterns": [ { "include": "#template_call_range" } ] },
+				"3": { "patterns": [ { "include": "#template_call_range" } ] },
+				"4": { "patterns": [ { "include": "#template_call_range" } ] }
+			}
+		},
+		"typename": {
+			"match": "(?x)(?<_1>\\w++)(?<_2>(?<_3>(?>::)?+(?>\\w++(?<_4><(?>\\g<nest>|[^<>]++)*+>)?+::)*+)?+\\w++(?<nest><(?>\\g<nest>|[^<>]++)*+>)?+)",
+			"comment": "(?x)(#1\ntypename)(#6\n(#12\n(?>::)?(?>[a-zA-Z0-9_]+(#14\n<(?>\\g<5>|[^<>]++)*>)?::)*+)?[a-zA-Z0-9_]+(#17\n<(?>\\g<5>|[^<>]++)*>)?)",
+			"captures": {
+				"1": { "name": "keyword $1" },
+				"2": { "patterns": [ { "include": "#template_call_range" } ] },
+				"3": { "patterns": [ { "include": "#template_call_range" } ] },
+				"4": { "patterns": [ { "include": "#template_call_range" } ] }
+			}
+		},
+		"template_call_range": {
+			"begin": "<",
+			"end": ">",
+			"beginCaptures": { "0": { "name": "punctuation.section.angle-brackets.begin.template.call.cpp" } },
+			"endCaptures": { "0": { "name": "punctuation.section.angle-brackets.end.template.call.cpp" } },
+			"name": "meta.template.call.cpp",
+			"patterns": [ { "include": "#typename" } ]
+		},
+		"typename2": {
+			"match": "(?x)(#1\ntypename) (#6\n(#12\n(?>::)?(?>[a-zA-Z0-9_]+(#14\n<(?>\\g<5>|[^<>]++)*>)?::)*+)?[a-zA-Z0-9_]+(#17\n<(?>\\g<5>|[^<>]++)*>)?)",
+			"captures": {
+				"1": { "name": "storage.modifier.cpp" },
+				"s2": {
+					"name": "meta.qualified_type.cpp",
+					"patterns": [
+						{
+							"match": "::",
+							"name": "punctuation.separator.namespace.access.cpp punctuation.separator.scope-resolution.cpp"
+						},
+						{
+							"begin": "<",
+							"end": ">",
+							"beginCaptures": { "0": { "name": "punctuation.section.angle-brackets.begin.template.call.cpp" } },
+							"endCaptures": { "0": { "name": "punctuation.section.angle-brackets.end.template.call.cpp" } },
+							"name": "meta.template.call.cpp",
+							"patterns": [ { "include": "#template_call_range" } ]
+						},
+						{
+							"match": "(?:[a-zA-Z_]|(?:\\\\u[0-9a-fA-F]{4}|\\\\U[0-9a-fA-F]{8}))(?:[a-zA-Z0-9_]|(?:\\\\u[0-9a-fA-F]{4}|\\\\U[0-9a-fA-F]{8}))*",
+							"name": "entity.name.type.cpp"
+						}
+					]
+				},
+				"3": {
+					"patterns": [
+						{
+							"match": "::",
+							"name": "punctuation.separator.namespace.access.cpp punctuation.separator.scope-resolution.type.cpp"
+						},
+						{
+							"match": "(?<!\\w)(?:[a-zA-Z_]|(?:\\\\u[0-9a-fA-F]{4}|\\\\U[0-9a-fA-F]{8}))(?:[a-zA-Z0-9_]|(?:\\\\u[0-9a-fA-F]{4}|\\\\U[0-9a-fA-F]{8}))*(?!\\w)",
+							"name": "entity.name.scope-resolution.type.cpp"
+						},
+						{ "include": "#template_call_range" }
+					]
+				},
+				"4": { "patterns": [ { "include": "#template_call_range" } ] }
+			}
+		}
+	}
+}

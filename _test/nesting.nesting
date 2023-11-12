@@ -1,0 +1,25 @@
+
+
+// typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<int>::type>::type>::type>::type>::type>::type>::type>::type>::type>::type>::type ptr{nullptr};
+
+// typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<int>::type>::type>::type>::type>::type>::type>::type>::type>::type ptr{nullptr};
+
+// typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<int>::type>::type>::type>::type>::type>::type>::type>::type ptr{nullptr};
+
+// typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<int>::type>::type>::type>::type>::type>::type>::type ptr{nullptr};
+
+// typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<typename::std::add_pointer<int>::type>::type>::type>::type>::type ptr{nullptr};
+
+// typename::std::add_pointer<comment>::type ptr{nullptr};
+
+a<b<c<d<e<f<g<h<i<comment>s>s>s>s>s>s>s>s>s>s>s>s>s>s>s>s>>s>s>s>s>s>s>s>
+
+comment::comment::comment<comment>::comment
+
+
+typename::std::add_pointer<comment>::type
+
+
+a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a<a>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+abc
