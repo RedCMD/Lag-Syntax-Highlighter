@@ -33,7 +33,8 @@ jobs:
           if [[ $(git diff --stat) != '' ]]; then
             echo 'Working directory dirty. Must cleanup first.'
             git add .
-            git commit -m "Package to npm %s"
+            git commit -m "Package to npm"
           fi
           vsce package ${{ github.event.inputs.version }}
+		  git add .
           git push
