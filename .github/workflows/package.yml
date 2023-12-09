@@ -37,7 +37,8 @@ jobs:
           fi
           if ${{ github.event.inputs.version }} == 'current'
             vsce package
-          else
+          fi
+          if ${{ github.event.inputs.version }} != 'current'
             vsce package ${{ github.event.inputs.version }}
           fi
           git add *.vsix
