@@ -35,10 +35,10 @@ jobs:
             echo 'Working directory dirty. Must cleanup first.'
             git clean -d -x -f
           fi
-          if ${{ github.event.inputs.version }} == 'current'
+          if [[ ${{ github.event.inputs.version }} == 'current' ]]; then
             vsce package
           fi
-          if ${{ github.event.inputs.version }} != 'current'
+          if [[ ${{ github.event.inputs.version }} != 'current' ]]; then
             vsce package ${{ github.event.inputs.version }}
           fi
           git add *.vsix
