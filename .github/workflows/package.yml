@@ -36,6 +36,7 @@ jobs:
             echo 'Working directory dirty. Must cleanup first.'
             git clean -d -x -f
           fi
+          git rm *.vsix
           if [[ '${{ github.event.inputs.version }}' == 'current x.x.x' ]]; then
             vsce package
           fi
