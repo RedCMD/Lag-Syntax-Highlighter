@@ -9,6 +9,7 @@ on:
         default: 'minor x.1.0'
         type: choice
         options:
+        - current x.x.x
         - patch x.x.1
         - minor x.1.0
         - major 1.0.0
@@ -24,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Install vsce
-        run: npm install -g vsce
+        run: npm install -g @vscode/vsce
 
       - name: Package
         run: |
@@ -34,7 +35,11 @@ jobs:
             echo 'Working directory dirty. Must cleanup first.'
             git clean -d -x -f
           fi
-          vsce package ${{ github.event.inputs.version }}
+          if ${{ github.event.inputs.version }} == 'current'
+            vsce package
+          else
+            vsce package ${{ github.event.inputs.version }}
+          fi
           git add *.vsix
           git commit -m "Package vsix"
           git push
