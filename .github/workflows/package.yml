@@ -21,10 +21,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install the dependencies
-        run: npm i
+        run: npm install
 
       - name: Install vsce
-        run: npm i -g vsce
+        run: npm install -g vsce
 
       - name: Package
         run: |
@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "theredcmd@gmail.com"
           if [[ $(git diff --stat) != '' ]]; then
             echo 'Working directory dirty. Must cleanup first.'
-            git add .
+            git clean -d -x -f
           fi
           vsce package ${{ github.event.inputs.version }}
           git add .
