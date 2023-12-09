@@ -1,0 +1,39 @@
+name: Package Extension
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: 'minor x.1.0'
+        type: choice
+        options:
+        - patch x.x.1
+        - minor x.1.0
+        - major 1.0.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install the dependencies
+        run: npm i
+
+      - name: Install vsce
+        run: npm i -g vsce
+
+      - name: Package
+        run: |
+          git config --global user.name "RedCMD"
+          git config --global user.email "theredcmd@gmail.com"
+          if [[ $(git diff --stat) != '' ]]; then
+            echo 'Working directory dirty. Must cleanup first.'
+            git add .
+            git commit -m "Package to npm %s"
+          fi
+          vsce package ${{ github.event.inputs.version }}
+          git push
