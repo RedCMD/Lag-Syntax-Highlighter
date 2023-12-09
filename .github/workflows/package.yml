@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Declare `checkout@v3`
       - uses: actions/checkout@v3
 
       - name: Install the dependencies
@@ -27,7 +28,7 @@ jobs:
       - name: Install vsce
         run: npm install -g @vscode/vsce
 
-      - name: Package
+      - name: Package .vsix
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
