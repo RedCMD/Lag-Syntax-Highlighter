@@ -35,5 +35,6 @@ jobs:
             git clean -d -x -f
           fi
           vsce package ${{ github.event.inputs.version }}
-          git add .
+          git add *.vsix
+          git commit -m "Package vsix"
           git push
