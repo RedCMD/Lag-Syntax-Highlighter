@@ -32,11 +32,11 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
+          git rm *.vsix
           if [[ $(git diff --stat) != '' ]]; then
             echo 'Working directory dirty. Must cleanup first.'
             git clean -d -x -f
           fi
-          git rm *.vsix
           if [[ '${{ github.event.inputs.version }}' == 'current x.x.x' ]]; then
             vsce package
           fi
