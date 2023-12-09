@@ -36,6 +36,6 @@ jobs:
             git commit -m "Package to npm"
           fi
           vsce package ${{ github.event.inputs.version }}
-          git commit -m "Package vsix"
           git add .
+          git commit -m "Package vsix"
           git push
