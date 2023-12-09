@@ -28,7 +28,7 @@ jobs:
       - name: Install vsce
         run: npm install -g @vscode/vsce
 
-      - name: Package .vsix
+      - name: Package vsix
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
