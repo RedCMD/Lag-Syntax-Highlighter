@@ -14,10 +14,7 @@ Other themes may work with various successes.
 
 ## Known Issues
 
-Many.  
-Comments are very very cursed.  
-Will have to code up a language server of some sort to fix it.  
-
+Things break all the time
 
 ## Release Notes
 
