@@ -5,7 +5,7 @@
 	"description": "Syntax Highlighting for Lag",
 	"version": "5.6.18",
 	"engines": {
-		"vscode": "^1.47.0"
+		"vscode": "^1.85.0"
 	},
 	"repository": {
 		"type": "git",
