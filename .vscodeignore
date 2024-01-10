@@ -1,0 +1,16 @@
+.github/**
+.git/**
+.vscode/**
+_test/**
+documentation/**
+
+*/node_modules/**
+
+.vsixmanifest
+.editorconfig
+.gitignore
+.js.map
+
+scope-colours.tmLanguage.json
+scope-names.tmLanguage.json
+unicode-category.regex.json

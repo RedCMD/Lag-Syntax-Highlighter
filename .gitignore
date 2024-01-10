@@ -1,0 +1,6 @@
+.git
+_test
+node_modules
+
+*.vsix
+*.vsixmanifest
