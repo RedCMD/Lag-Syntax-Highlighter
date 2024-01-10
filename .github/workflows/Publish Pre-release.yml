@@ -24,7 +24,7 @@ jobs:
           if [[ $(git diff --stat) != '' ]]; then
             echo 'working directory dirty. must cleanup first'
             git add .
-            git commit -m "Publish to npm %s"
+            git commit -m "Sync Github Action"
           fi
           vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
