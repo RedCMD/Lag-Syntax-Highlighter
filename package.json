@@ -18,7 +18,7 @@
 		"haha git borked now >:(  jssss "
 	],
 	"scripts": {
-		"prepublish": "npm run generate-wasm",
+		"vscode:prepublish": "npm run generate-wasm",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"generate-wasm": "tree-sitter"
