@@ -13,6 +13,10 @@
 	},
 	"patterns": [
 		{
+			"match": ".+",
+			"name": "string"
+		},
+		{
 			"comment": "* matches name scope word",
 			"begin": "TextMate",
 			"end": "$",

@@ -24,3 +24,34 @@ Will have to code up a language server of some sort to fix it.
 -----------------------------------------------------------------------------------------------------------
 
 ### For more information
+
+
+```json
+{
+	"json": "value"
+}
+```
+
+```json textmate
+{
+	"json": "value"
+}
+```
+
+```json-textmate
+{
+	"json": "value"
+}
+```
+
+```RedCMD.Lag
+{
+	"json": "value"
+}
+```
+
+```lag
+{
+	"json": "value"
+}
+```
