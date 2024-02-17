@@ -27,4 +27,3 @@ jobs:
           vsce package --no-git-tag-version
           git add -f *.vsix
           npm version patch -f
-          git push
