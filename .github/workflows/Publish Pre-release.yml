@@ -29,7 +29,7 @@ jobs:
           fi
           vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }} --no-git-tag-version
           git rm -f *.vsix
-          vsce package
+          vsce package --no-git-tag-version
           git add -f *.vsix
           npm version patch
           git push
