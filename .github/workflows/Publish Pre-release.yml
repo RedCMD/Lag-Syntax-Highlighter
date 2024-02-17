@@ -26,9 +26,9 @@ jobs:
             git add .
             git commit -m "Sync Github Action"
           fi
-          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          npm version patch --no-git-tag-version
           git rm -f *.vsix
           vsce package
           git add -f *.vsix
-          git commit -m "Update .vsix file"
+          vsce publish --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
