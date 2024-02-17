@@ -22,11 +22,6 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          if [[ $(git diff --stat) != '' ]]; then
-            echo 'working directory dirty. must cleanup first'
-            git add .
-            git commit -m "Sync Github Action"
-          fi
           vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }} --no-git-tag-version
           git rm -f *.vsix
           vsce package --no-git-tag-version
