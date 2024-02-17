@@ -34,9 +34,7 @@
 			"end": "$",
 			"name": "meta.tag. random . scope .html"
 		}
-	]
-	
-	,
+	],
 	"injectionss": {
 		"sR:source.redcmd.syntax.lag - invalid - string - variable - comment - regex - markup - meta.embedded - whitespace": {
 			"comment": "How to inject into everything that doesn't have a scope-name? without having to specify every single scope-name?",
@@ -112,9 +110,7 @@
 		"test": {
 			"match": "(a\\Kax)",
 			"name": "keyword.control strong.regex",
-			"captures": {
-				"1": { "patterns": [ { "include": "#test" } ] }
-			}
+			"captures": { "1": { "patterns": [ { "include": "#test" } ] } }
 		},
 		"json": {
 			"comment": "{ ... }",
@@ -127,9 +123,7 @@
 					"begin": "(?=\")",
 					"end": ",(?!\\s*[]}])|(?=[]}])",
 					"endCaptures": { "0": { "name": "markup.underline" } },
-					"patterns": [
-						{ "include": "#json-item" }
-					]
+					"patterns": [ { "include": "#json-item" } ]
 				}
 			]
 		},
@@ -165,9 +159,7 @@
 			"end": "}",
 			"beginCaptures": { "0": { "name": "markup.underline" } },
 			"endCaptures": { "0": { "name": "markup.underline" } },
-			"patterns": [
-				{ "include": "#json-item" }
-			]
+			"patterns": [ { "include": "#json-item" } ]
 		},
 		"json-array": {
 			"comment": "[ ... ]",
