@@ -181,5 +181,8 @@
 		"publisherDisplayName": "RedCMD",
 		"publisherId": "6d229866-9775-4c10-9f86-f22eaa70eb66",
 		"isPreReleaseVersion": false
+	},
+	"dependencies": {
+		"web-tree-sitter": "^0.20.8"
 	}
 }
