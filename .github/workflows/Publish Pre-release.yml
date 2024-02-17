@@ -13,7 +13,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install vsce
         run: npm i -g @vscode/vsce
@@ -31,5 +31,5 @@ jobs:
           git rm -f *.vsix
           vsce package --no-git-tag-version
           git add -f *.vsix
-          npm version patch
+          npm version patch -f
           git push
