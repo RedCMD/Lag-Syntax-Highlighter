@@ -17,6 +17,8 @@
 	"keywords": [
 		"haha git borked now >:(  jssss "
 	],
+	"activationEvents": [],
+	"main": "",
 	"scripts": {
 		"//prepublish": "npm run generate-wasm",
 		"compile": "tsc -p ./",
