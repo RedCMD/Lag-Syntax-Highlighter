@@ -17,9 +17,6 @@ jobs:
       - name: Install vsce
         run: npm i -g @vscode/vsce
 
-      - name: Install web-tree-sitter
-        run: npm i web-tree-sitter
-
       - name: Publish Pre-release
         run: |
           git config --global user.name "RedCMD"
@@ -30,7 +27,7 @@ jobs:
             git commit -m "Sync Github Action"
           fi
           git rm -f *.vsix
-          vsce package
+          vsce package patch
           git add -f *.vsix
           git commit -m "Update .vsix file"
           vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}

@@ -173,16 +173,10 @@
 			}
 		]
 	},
-	"//dependencies": {
-		"web-tree-sitter": "^0.20.8"
-	},
 	"__metadata": {
 		"id": "4a6a34e3-1bcd-4782-ab35-d298df305cba",
 		"publisherDisplayName": "RedCMD",
 		"publisherId": "6d229866-9775-4c10-9f86-f22eaa70eb66",
 		"isPreReleaseVersion": false
-	},
-	"dependencies": {
-		"web-tree-sitter": "^0.20.8"
 	}
 }
