@@ -62,7 +62,7 @@
 	},
 	"patternss": [
 		{
-			"matchs": "(?x)  [[:123456789abcdefghijklmnopqrst:]",
+			"matchs": "(?x)   [[:123456789abcdefghijklmnopqrst:]",
 			"names": "comment strong regex"
 		},
 		{ "includes": "#json" },
