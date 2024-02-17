@@ -22,7 +22,7 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }} --no-git-tag-version --skip-duplicate
+          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }} --no-git-tag-version
           git rm -f *.vsix
           vsce package --no-git-tag-version
           git add -f *.vsix
