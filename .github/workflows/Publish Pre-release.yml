@@ -30,4 +30,5 @@ jobs:
           git rm -f *.vsix
           vsce package
           git add -f *.vsix
+          git commit -m "Update .vsix file"
           git push
