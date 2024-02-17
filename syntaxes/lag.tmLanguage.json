@@ -36,7 +36,7 @@
 		}
 	],
 	"injectionss": {
-		"sR:source.redcmd.syntax.lag - invalid - string - variable - comment - regex - markup - meta.embedded - whitespace": {
+		"R:source.redcmd.syntax.lag - invalid - string - variable - comment - regex - markup - meta.embedded - whitespace": {
 			"comment": "How to inject into everything that doesn't have a scope-name? without having to specify every single scope-name?",
 			"patterns": [
 				{ "include": "#invalid-brackets-commas" },
