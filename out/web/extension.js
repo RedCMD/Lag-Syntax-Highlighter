@@ -26,7 +26,8 @@ function initTokenColorCustomizations(context) {
         }
     }));
     context.subscriptions.push(vscode.workspace.onDidChangeTextDocument((edits) => {
-        // vscode.window.showInformationMessage(JSON.stringify("change"));
+        vscode.window.showInformationMessage(JSON.stringify("change"));
+        vscode.window.showInformationMessage(JSON.stringify(edits));
         if (edits.contentChanges.length == 0) {
             return;
         }
