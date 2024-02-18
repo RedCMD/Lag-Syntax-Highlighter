@@ -60,8 +60,14 @@ function initTokenColorCustomizations(context) {
     }));
 }
 exports.initTokenColorCustomizations = initTokenColorCustomizations;
-const packageJSONSelector = { pattern: "**/package.json", scheme: "file" };
-const jsonTextMateSelector = { language: "json-textmate", scheme: "file" };
+const packageJSONSelector = [
+	{ pattern: "**/package.json", scheme: "file" },
+	{ pattern: "**/package.json", scheme: "vscode-vfs" }
+];
+const jsonTextMateSelector = [
+	{ language: "json-textmate", scheme: "file" },
+	{ language: "json-textmate", scheme: "vscode-vfs" }
+];
 // const documentSelector: vscode.DocumentSelector = [packageJSONSelector, jsonTextMateSelector];
 function packageJSON(document) {
     vscode.window.showInformationMessage(JSON.stringify("packageJSON"));
