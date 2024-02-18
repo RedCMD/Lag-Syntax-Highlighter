@@ -18,8 +18,8 @@
 		"haha git borked now >:(  jssss "
 	],
 	"activationEvents": [],
-	"main": "",
-	"browser": "",
+	"//main": "./out/extension.js",
+	"browser": "./out/web/extension.js",
 	"scripts": {
 		"//prepublish": "npm run generate-wasm",
 		"compile": "tsc -p ./",
@@ -174,7 +174,19 @@
 				"path": "./syntaxes/nesting.tmLanguage.json",
 				"configuration": "./nesting.language-configuration.json"
 			}
-		]
+		],
+		"configurationDefaults": {
+			"editor.tokenColorCustomizations": {
+				"textMateRules": [
+					{
+						"scope": "support.type.property-name",
+						"settings": {
+							"foreground": "#FF0000"
+						}
+					}
+				]
+			}
+		}
 	},
 	"__metadata": {
 		"id": "4a6a34e3-1bcd-4782-ab35-d298df305cba",
