@@ -24,7 +24,9 @@
 		"//prepublish": "npm run generate-wasm",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"generate-wasm": "tree-sitter"
+		"generate-wasm": "tree-sitter",
+		"preversion": "git rm -f *.vsix",
+		"version": "vsce package --no-git-tag-version && git add -f *.vsix"
 	},
 	"contributes": {
 		"languages": [
