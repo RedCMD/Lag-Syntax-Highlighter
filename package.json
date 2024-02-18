@@ -19,6 +19,7 @@
 	],
 	"activationEvents": [],
 	"main": "",
+	"browser": "",
 	"scripts": {
 		"//prepublish": "npm run generate-wasm",
 		"compile": "tsc -p ./",
