@@ -13,8 +13,8 @@
 	},
 	"patterns": [
 		{
-			"match": ".+",
-			"name": "string"
+			"match": "(.+)",
+			"name": "$1"
 		},
 		{
 			"comment": "* matches name scope word",
