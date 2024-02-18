@@ -32,8 +32,13 @@ function initTokenColorCustomizations(context) {
             return;
         }
         const document = edits.document;
+        vscode.window.showInformationMessage(JSON.stringify("document"));
+        vscode.window.showInformationMessage(JSON.stringify(document));
         if (vscode.languages.match(packageJSONSelector, document)) {
+            vscode.window.showInformationMessage(JSON.stringify("match"));
             if (document == vscode.window.activeTextEditor?.document) { // `activeTextEditor` can be `undefined`!
+                vscode.window.showInformationMessage(JSON.stringify("active"));
+                vscode.window.showInformationMessage(JSON.stringify(vscode.window.activeTextEditor));
                 update(packageJSON(document));
             }
         }
