@@ -17,6 +17,9 @@
 	"keywords": [
 		"haha git borked now >:(  jssss "
 	],
+	"extensionDependencies": [
+		"vscode.json-language-features"
+	],
 	"activationEvents": [],
 	"//main": "./out/extension.js",
 	"browser": "./out/web/extension.js",
