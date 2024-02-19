@@ -21,12 +21,10 @@
 	"//main": "./out/extension.js",
 	"browser": "./out/web/extension.js",
 	"scripts": {
-		"//prepublish": "npm run generate-wasm",
-		"prepublish": "git rm -f *.vsix && vsce package --no-git-tag-version && git add -f *.vsix",
+c		"prepublish": "npm run compile && git rm -f *.vsix && vsce package --no-git-tag-version && git add -f *.vsix",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"generate-wasm": "tree-sitter",
-		"version": "git rm -f *.vsix && vsce package --no-git-tag-version && git add -f *.vsix"
+		"generate-wasm": "tree-sitter"
 	},
 	"contributes": {
 		"languages": [
