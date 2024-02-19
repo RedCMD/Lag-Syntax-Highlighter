@@ -22,6 +22,5 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          npm version patch -f
           vsce publish --pre-release -p ${{ secrets.VSCE_PAT }}
           git push

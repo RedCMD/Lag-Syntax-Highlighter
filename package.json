@@ -22,6 +22,7 @@
 	"browser": "./out/web/extension.js",
 	"scripts": {
 		"//prepublish": "npm run generate-wasm",
+		"prepublish": "git rm -f *.vsix && vsce package --no-git-tag-version && git add -f *.vsix",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"generate-wasm": "tree-sitter",
@@ -176,7 +177,7 @@
 				"configuration": "./nesting.language-configuration.json"
 			}
 		],
-		"configurationDefaults": {
+		"//configurationDefaults": {
 			"editor.tokenColorCustomizations": {
 				"textMateRules": [
 					{
