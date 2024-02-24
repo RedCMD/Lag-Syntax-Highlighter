@@ -22,5 +22,5 @@ jobs:
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
-          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }} --skip-duplicate
           git push
