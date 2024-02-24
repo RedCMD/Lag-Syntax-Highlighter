@@ -22,7 +22,7 @@
 	],
 	"activationEvents": [],
 	"main": "./out/extension.js",
-	"browser": "./out/web/extension.js",
+	"//browser": "./out/web/extension.js",
 	"scripts": {
 		"version": "git rm -f --ignore-unmatch *.vsix && vsce package && git add -f --ignore-errors *.vsix",
 		"compile": "tsc -p ./",
