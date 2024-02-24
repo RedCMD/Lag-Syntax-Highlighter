@@ -24,7 +24,7 @@
 	"//main": "./out/extension.js",
 	"browser": "./out/web/extension.js",
 	"scripts": {
-		"version": "git rm -f *.vsix --ignore-unmatch && vsce package && git add -f *.vsix --ignore-unmatch",
+		"version": "git rm -f --ignore-unmatch *.vsix && vsce package && git add -f --ignore-errors *.vsix",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"generate-wasm": "tree-sitter"
