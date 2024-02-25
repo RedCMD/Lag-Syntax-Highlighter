@@ -22,7 +22,7 @@
 	],
 	"activationEvents": [],
 	"main": "./out/extension.js",
-	"//browser": "./out/web/extension.js",
+	"browser": "./out/web/extension.js",
 	"scripts": {
 		"version": "git rm -f --ignore-unmatch *.vsix && vsce package && git add -f --ignore-errors *.vsix",
 		"compile": "tsc -p ./",
@@ -189,7 +189,12 @@
 					}
 				]
 			}
-		}
+		},
+		"jsonLanguageParticipants": [
+			{
+				"languageId": "lag"
+			}
+		]
 	},
 	"__metadata": {
 		"id": "4a6a34e3-1bcd-4782-ab35-d298df305cba",
