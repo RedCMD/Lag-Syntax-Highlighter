@@ -4,7 +4,7 @@ exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 
 async function activate(context) {
-	vscode.window.showInformationMessage(JSON.stringify("TextMate Extension"));
+	// vscode.window.showInformationMessage(JSON.stringify("TextMate Extension"));
 }
 
 exports.activate = activate;

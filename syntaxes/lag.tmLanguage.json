@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.redcmd.syntax.lag",
-	"injections": {
+	"//injections": {
 		"L:meta.tag.*.*.html": {
 			"patterns": [
 				{
@@ -13,26 +13,22 @@
 	},
 	"patterns": [
 		{
-			"match": "(.+)",
-			"name": "$1"
-		},
-		{
-			"comment": "* matches name scope word",
-			"begin": "TextMate",
-			"end": "$",
-			"name": "meta.tag.some.scope.html"
-		},
-		{
-			"comment": "Scopes must be in order",
-			"begin": "Neither",
-			"end": "$",
-			"name": ".html . meta.tag."
-		},
-		{
-			"comment": "Can have any random scope inbetween",
-			"begin": "VSCode",
-			"end": "$",
-			"name": "meta.tag. random . scope .html"
+			"begin": "aa",
+			"end": "hh",
+			"name": "AA",
+			"patterns": [
+				{
+					"begin": "cc",
+					"end": "ff",
+					"name": "CC",
+					"patterns": [
+						{
+							"match": "ee",
+							"name": "EE"
+						}
+					]
+				}
+			]
 		}
 	],
 	"injectionss": {
@@ -81,7 +77,7 @@
 			"name": "$0"
 		}
 	],
-	"repository": {
+	"//repository": {
 		"ab": {
 			"begin": "{",
 			"end": "}",

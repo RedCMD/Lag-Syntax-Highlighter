@@ -194,6 +194,12 @@
 			{
 				"languageId": "lag"
 			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "*.lag",
+				"url": "./vscode.tmLanguage.schema.json"
+			}
 		]
 	},
 	"__metadata": {
