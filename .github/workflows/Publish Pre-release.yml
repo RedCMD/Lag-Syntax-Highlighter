@@ -19,12 +19,14 @@ jobs:
       - name: Install the dependencies
         run: npm i
 
+      - name: Build the js and wasm files
+        run: npm run build
+
       - name: Publish Pre-release
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
-          npm run build
           npm exec vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
