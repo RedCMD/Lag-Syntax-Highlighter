@@ -17,7 +17,9 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Install Dependencies
-        run: npm i
+        run: |
+          npm i
+          npm i @vscode/vsce -g
 
       - name: Build Files
         run: npm run build
@@ -31,5 +33,5 @@ jobs:
 
       - name: Publish Pre-release
         run: |
-          npm exec vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
