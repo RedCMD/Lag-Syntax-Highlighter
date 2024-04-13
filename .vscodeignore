@@ -3,6 +3,7 @@
 .vscode/**
 _test/**
 documentation/**
+out/**
 
 */node_modules/**
 
