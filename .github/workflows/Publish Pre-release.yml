@@ -21,7 +21,7 @@ jobs:
           npm i
           npm i @vscode/vsce -g
 
-      - name: Build Files
+      - name: Build Extension
         run: npm run build
 
       - name: Setup Github Actions
