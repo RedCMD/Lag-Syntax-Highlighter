@@ -1,7 +1,9 @@
 .git
 _test
 node_modules
-out
+out/
 
 *.vsix
 *.vsixmanifest
+out/extension.js
+out/web/extension.js
