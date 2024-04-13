@@ -1,6 +1,7 @@
 .git
 _test
 node_modules
+out
 
 *.vsix
 *.vsixmanifest

@@ -1,0 +1,20 @@
+{
+  "name": "test",
+  "rules": {
+    "root": {
+      "type": "PATTERN",
+      "value": "\\w+"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

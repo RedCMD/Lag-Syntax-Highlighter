@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS", // Cleaner output than Node16
+		"target": "ES2022",
+		"outDir": "out",
+		"lib": [
+			"ES2022",
+			"DOM", // https://github.com/microsoft/vscode-oniguruma/issues/7
+		],
+		"sourceMap": false,
+		"rootDir": "src",
+		"strict": true, /* enable all strict type-checking options */
+		"alwaysStrict": true,
+		/* Additional Checks */
+		"strictNullChecks": false,
+		"noImplicitReturns": false, /* Report error when not all code paths in function return a value. */
+		"noFallthroughCasesInSwitch": false, /* Report errors for fallthrough cases in switch statement. */
+		"noUnusedParameters": false, /* Report errors on unused parameters. */
+	},
+	"include": [
+		"src/**/*.ts",
+	],
+	"exclude": [
+		"node_modules",
+		"out",
+	]
+}
