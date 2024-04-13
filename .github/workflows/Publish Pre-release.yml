@@ -16,17 +16,20 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm i
 
-      - name: Build files
+      - name: Build Files
         run: npm run build
 
-      - name: Publish Pre-release
+      - name: Setup Github Actions
         run: |
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
+
+      - name: Publish Pre-release
+        run: |
           npm exec vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
