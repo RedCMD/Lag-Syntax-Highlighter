@@ -26,5 +26,5 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
           npm run build
-          npm run vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          npm exec vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
