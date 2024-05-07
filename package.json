@@ -17,7 +17,7 @@
 	"keywords": [
 		"haha git borked now >:(  jssss "
 	],
-	"extensionDependencies": [
+	"//extensionDependencies": [
 		"vscode.json-language-features"
 	],
 	"activationEvents": [],
@@ -114,6 +114,14 @@
 			}
 		],
 		"grammars": [
+			{
+				"scopeName": "qt.injection",
+				"path": "./syntaxes/qt_cpp.injection.tmLanguage.json",
+				"injectTo": [
+					"source.c",
+					"source.cpp"
+				]
+			},
 			{
 				"language": "test_regex",
 				"scopeName": "source.redcmd.syntax.test_regex",

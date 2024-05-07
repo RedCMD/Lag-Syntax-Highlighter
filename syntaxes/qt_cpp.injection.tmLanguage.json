@@ -1,0 +1,16 @@
+{
+	"scopeName": "qt.injection",
+	"injectionSelector": [
+		"L:source.c -string -comment",
+		"L:source.cpp -string -comment"
+	],
+	"patterns": [
+		{ "include": "#signal-keyword" }
+	],
+	"repository": {
+		"signal-keyword": {
+			"name": "keyword.control.signal",
+			"match": "\\s*\\bpar_for\\b"
+		}
+	}
+}
