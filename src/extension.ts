@@ -1,3 +1,3 @@
-export function activate() {
-	return;
+export function activate() { // trim whitespace?  
+	return;  
 }
