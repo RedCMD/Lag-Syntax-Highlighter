@@ -1,0 +1,10 @@
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+insert_final_newline = false
+trim_trailing_whitespace = true
+
+[{*.md,out/}]
+trim_trailing_whitespace = false
