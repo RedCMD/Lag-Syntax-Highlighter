@@ -57,3 +57,5 @@ Will have to code up a language server of some sort to fix it.
 ```
 
 ![list-of-VSCode-Dark+-scopenames-and-their-colours](https://github.com/RedCMD/TmLanguage-Syntax-Highlighter/blob/main/images/VSCode%20Dark+%20theme%20coloured%20scope-names.png?raw=true)
+
+no final newline?  
