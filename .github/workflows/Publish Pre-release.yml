@@ -23,14 +23,16 @@ jobs:
       - name: Build Extension
         run: npm run build
 
-      - name: Setup Github Actions
-        run: |
-          git config --global user.name "RedCMD"
-          git config --global user.email "theredcmd@gmail.com"
-          git add .
-          git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
+      # - name: Setup Github Actions
+      #   run: |
+      #     git config --global user.name "RedCMD"
+      #     git config --global user.email "theredcmd@gmail.com"
+      #     git add .
+      #     git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
 
       - name: Generate Release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
          npx vsce package
          gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-*.vsix
