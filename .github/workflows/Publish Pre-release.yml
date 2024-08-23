@@ -19,7 +19,6 @@ jobs:
       - name: Install Dependencies
         run: |
           npm i
-          npm i @vscode/vsce -g
 
       - name: Build Extension
         run: npm run build
@@ -32,14 +31,11 @@ jobs:
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
 
       - name: Generate Release
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
          npx vsce package
-         gh -h
-         gh release -h
+         gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-*.vsix
 
       - name: Publish Pre-release
         run: |
-          vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          npx vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
