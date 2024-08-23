@@ -34,9 +34,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-         npx vsce package patch --pre-release
-         echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
-         gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-$VERSION.vsix
+          npx vsce package patch --pre-release
+          echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
+      - run:
+          gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-$VERSION.vsix
 
       - name: Publish Pre-release
         run: |
