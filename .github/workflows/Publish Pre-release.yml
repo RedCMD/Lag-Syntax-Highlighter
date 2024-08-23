@@ -37,7 +37,7 @@ jobs:
       - env:
           GH_TOKEN: ${{ github.token }}
         run:
-          gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$VERSION --generate-notes -p lag-syntax-highlighter-$VERSION.vsix
 
       - name: Publish Pre-release
         run: |
