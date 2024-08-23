@@ -33,12 +33,12 @@ jobs:
 
       - name: Generate Release
         run: | # include `.vsix` file in Github release page
-          npx vsce package patch --pre-release
+          npx vsce package patch --pre-release --no-git-tag-version
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
       - env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create v$VERSION --generate-notes -p --verify-tag lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$VERSION --generate-notes -p lag-syntax-highlighter-$VERSION.vsix
 
       - name: Publish Pre-release
         run: | # upload to Extension Marketplace
