@@ -31,14 +31,17 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
 
-      - name: Generate Release
+      - name: Package Extension
         run: | # include `.vsix` file in Github release page
           npx vsce package patch --pre-release --no-git-tag-version
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
+
+      - name: Generate Release
+        run: | #
+          git tag -d $VERSION
           gh release create v$VERSION --generate-notes -p lag-syntax-highlighter-$VERSION.vsix
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Publish Pre-release
         run: | # upload to Extension Marketplace
