@@ -27,7 +27,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-         npx vsce package
+         npx vsce package patch --pre-release
          gh release create v$VERSION -p --generate-notes lag-syntax-highlighter-*.vsix
 
       # - name: Setup git Actions
@@ -39,5 +39,5 @@ jobs:
 
       - name: Publish Pre-release
         run: |
-          npx vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          npx vsce publish --pre-release -p ${{ secrets.VSCE_PAT }}
 #          git push
