@@ -33,7 +33,7 @@ jobs:
 
       - name: Publish Pre-release
         run: | # upload to Extension Marketplace
-          npx vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
+          npx vsce publish patch --pre-release --no-git-tag-version -p ${{ secrets.VSCE_PAT }}
           git push
 
       - name: Package Extension
@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate Release
         run: | # Create release page on github with `.vsix` file
-          gh release create v$VERSION --generate-notes -p lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$VERSION --generate-notes --pre-release lag-syntax-highlighter-$VERSION.vsix
         env:
           GH_TOKEN: ${{ github.token }}
 
