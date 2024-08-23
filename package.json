@@ -26,7 +26,6 @@
 	"scripts": {
 		"build": "npm run compile && npm run compile-web",
 		"//build": "npm run compile && npm run compile-web && npm run generate-wasm",
-		"version": "git rm -f --ignore-unmatch *.vsix && vsce package && git add -f --ignore-errors *.vsix",
 		"watch": "tsc -watch -p ./",
 		"watch-web": "webpack --watch",
 		"compile": "tsc -p ./",
