@@ -44,7 +44,7 @@
 		},
 		{
 			"match": "//.+",
-			"name": "comment"
+			"name": "comments"
 		}
 	]
 }
