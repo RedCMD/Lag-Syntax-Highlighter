@@ -1,55 +1,50 @@
 {
 	"name": "Foo",
 	"scopeName": "source.foo",
-	"patterns": [ { "include": "#foo" } ],
+	"patterns": [
+		{ "include": "#foo" }
+	],
 	"repository": {
 		"foo": {
 			"name": "meta.foo",
 			"begin": "^(\\s*)foo.*",
 			"while": "^(\\1\\s+.*)",
-			"whileCaptures": {
-        "1": {
-          "patterns": [ { "include": "#bar" } ]
+			"whileCaptures": { "1": { "patterns": [ { "include": "#bar" } ] } }
+		},
+		"bar": {
+			"name": "meta.bar",
+			"begin": "^(\\s+)bar.*",
+			"while": "^(\\1\\s+.*)",
+			"whileCaptures": { "1": { "patterns": [ { "include": "#baz" } ] } }
+		},
+		"baz": {
+			"name": "meta.baz",
+			"begin": "^(\\s+)baz.*",
+			"while": "^(\\1\\s+.*)"
 		}
-	}
-}, "bar": {
-	"name": "meta.bar",
-	"begin": "^(\\s+)bar.*",
-	"while": "^(\\1\\s+.*)",
-	"whileCaptures": {
-		"1": {
-			"patterns": [{
-				"include": "#baz"
-			}]
+	},
+	"$schema": "https://raw.githubusercontent.com/RedCMD/TmLanguage-Syntax-Highlighter/main/vscode.tmLanguage.schema.json",
+	"scopeNames": "source.redcmd.syntax.test_regex",
+	"patternss": [
+		{
+			"begin": "^\"",
+			"end": "\"",
+			"captures": { "0": { "name": "punctuation.definition.tag" } },
+			"contentName": "meta.embedded.block.regexp.tmLanguage",
+			"patterns": [ { "include": "source.syntax.regexp.tmLanguage" } ]
+		},
+		{
+			"begin": "\"",
+			"end": "\"",
+			"name": "string"
+		},
+		{
+			"match": "^//.+",
+			"name": "comment markup.strikethrough"
+		},
+		{
+			"match": "//.+",
+			"name": "comment"
 		}
-	}
-}, "baz": {
-	"name": "meta.baz",
-	"begin": "^(\\s+)baz.*",
-	"while": "^(\\1\\s+.*)"
+	]
 }
-  },
-"$schema": "https: //raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-"scopeNames": "source.redcmd.syntax.test_regex",
-"patternss": [
-		{
-	"begin": "^\"",
-	"end": "\"",
-	"captures": { "0": { "name": "punctuation.definition.tag" } },
-	"contentName": "meta.embedded.block.regexp.tmLanguage",
-	"patterns": [ { "include": "source.syntax.regexp.tmLanguage" } ]
-},
-		{
-	"begin": "\"",
-	"end": "\"",
-	"name": "string"
-},
-		{
-	"match": "^//.+",
-	"name": "comment markup.strikethrough"
-},
-		{
-	"match": "//.+",
-	"name": "comment"
-}
-	] }
