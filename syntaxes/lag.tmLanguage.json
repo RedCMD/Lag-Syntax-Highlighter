@@ -3,7 +3,7 @@
 	"scopeName": "source.redcmd.syntax.lag",
 	"patterns": [
 		{
-			"match": "z..",
+			"match": ".+",
 			"name": "string"
 		}
 	]
