@@ -34,7 +34,6 @@ jobs:
       - name: Package Extension
         run: | # `.vsix` file
           npx vsce package patch --pre-release --no-git-tag-version
-          git push --tags
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
       - name: Generate Release
