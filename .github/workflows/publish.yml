@@ -36,7 +36,7 @@ jobs:
 
       - name: Package Extension
         run: | # `.vsix` file
-          npx vsce package ${{ github.event.inputs.version }}
+          npx vsce package ${{ github.event.inputs.version }} --no-git-tag-version
           git push --tags
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
