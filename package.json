@@ -30,7 +30,8 @@
 		"watch-web": "webpack --watch",
 		"compile": "tsc -p ./",
 		"compile-web": "webpack --no-devtool --no-watch --mode production",
-		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm"
+		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm",
+		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
 	},
 	"contributes": {
 		"languages": [
@@ -215,14 +216,14 @@
 	},
 	"dependencies": {
 		"vscode-oniguruma": "1.7.0",
-		"web-tree-sitter": "^0.22.6"
+		"web-tree-sitter": "^0.23.0"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.92.0",
 		"@vscode/test-web": "^0.0.53",
-		"@vscode/vsce": "^2.32.0",
+		"@vscode/vsce": "^3.0.0",
 		"path-browserify": "^1.0.1",
-		"tree-sitter-cli": "^0.22.6",
+		"tree-sitter-cli": "^0.23.0",
 		"ts-loader": "^9.5.1",
 		"typescript": "^5.5.4",
 		"webpack": "^5.94.0",
