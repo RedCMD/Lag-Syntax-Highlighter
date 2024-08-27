@@ -30,11 +30,10 @@ jobs:
           git config --global user.email "theredcmd@gmail.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
-          git push
 
       - name: Package Extension
         run: | # `.vsix` file
-          npx vsce package patch --pre-release
+          npx vsce package patch --pre-release --no-git-tag-version
           git push --tags
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
