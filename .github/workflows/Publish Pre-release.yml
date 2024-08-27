@@ -45,5 +45,5 @@ jobs:
 
       - name: Publish Pre-release
         run: | # upload to Extension Marketplace
-          npx vsce publish --pre-release -p ${{ secrets.VSCE_PAT }}
+          npx vsce publish --pre-release -p ${{ secrets.VSCE_PAT }} --packagePath lag-syntax-highlighter-$VERSION.vsix
           git push
