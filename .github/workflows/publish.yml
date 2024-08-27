@@ -23,9 +23,9 @@ jobs:
         run: | # vsce etc
           npm i
 
-      # - name: Build Extension
-      #   run: | # build `extension.js` and `*.wasm` files
-      #     npm run build
+      - name: Build Extension
+        run: | # build `extension.js` and `*.wasm` files
+          npm run build
 
       - name: Setup Github Actions
         run: | # allow use of `git push`
