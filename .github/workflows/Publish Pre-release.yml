@@ -30,6 +30,7 @@ jobs:
           git config --global user.email "theredcmd@gmail.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
+          git push --tags
 
       - name: Package Extension
         run: | # `.vsix` file
