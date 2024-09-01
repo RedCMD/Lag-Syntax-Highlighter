@@ -36,14 +36,13 @@ jobs:
           npx vsce package patch --pre-release
           git push
           git push --tags
-          echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
       - name: Generate Release
         run: | # create release page on github with `.vsix` file
-          gh release create v$VERSION --generate-notes --prerelease lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$npm_package_version --generate-notes --prerelease lag-syntax-highlighter-$npm_package_version.vsix
         env:
           GH_TOKEN: ${{ github.token }}
 
       - name: Publish Pre-release
         run: | # upload to Extension Marketplace
-          npx vsce publish -p ${{ secrets.VSCE_PAT }} --pre-release --packagePath lag-syntax-highlighter-$VERSION.vsix
+          npx vsce publish -p ${{ secrets.VSCE_PAT }} --pre-release --packagePath lag-syntax-highlighter-$npm_package_version.vsix
