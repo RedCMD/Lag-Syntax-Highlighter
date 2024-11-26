@@ -35,4 +35,3 @@ jobs:
         run: | # shell
           npx vsce publish patch --pre-release -p ${{ secrets.VSCE_PAT }}
           git push
-          git push --tags
