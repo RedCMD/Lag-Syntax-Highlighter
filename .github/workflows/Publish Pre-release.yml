@@ -16,33 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Install Dependencies
-        run: | # vsce etc
+      - name: Install Dependencies # vsce etc
+        run: | # shell
           npm i
 
-      - name: Build Extension
-        run: | # build `extension.js` and `*.wasm` files
+      - name: Build Extension # build `extension.js` and `*.wasm` files
+        run: | # shell
           npm run build
 
-      - name: Setup Github Actions
-        run: | # allow use of `git push`
+      - name: Setup Github Actions # allow use of `git push`
+        run: | # shell
           git config --global user.name "RedCMD"
           git config --global user.email "theredcmd@gmail.com"
           git add .
           git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
 
-      - name: Package Extension
-        run: | # `.vsix` file
-          npx vsce package patch --pre-release
+      - name: Publish Pre-release # upload to Extension Marketplace
+        run: | # shell
+          npx vsce publish -p ${{ secrets.VSCE_PAT }} --pre-release
           git push
           git push --tags
-
-      - name: Generate Release
-        run: | # create release page on github with `.vsix` file
-          gh release create v$npm_package_version --generate-notes --prerelease lag-syntax-highlighter-$npm_package_version.vsix
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Publish Pre-release
-        run: | # upload to Extension Marketplace
-          npx vsce publish -p ${{ secrets.VSCE_PAT }} --pre-release --packagePath lag-syntax-highlighter-$npm_package_version.vsix
