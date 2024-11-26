@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate Release # create release page on github with `.vsix` file
         run: | # shell
-          gh release create v$VERSION --generate-notes lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$VERSION --notes-from-tag --generate-notes lag-syntax-highlighter-$VERSION.vsix
         env:
           GH_TOKEN: ${{ github.token }}
 
