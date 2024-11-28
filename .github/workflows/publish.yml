@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version'
-        default: 'minor'
+        description: Version
+        default: minor
         type: choice
         options:
           - patch
@@ -37,14 +37,15 @@ jobs:
         run: | # shell
           npx vsce package ${{ github.event.inputs.version }}
           git push --follow-tags
-          echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
       - name: Generate Release # create release page on github with `.vsix` file
         run: | # shell
-          gh release create v$VERSION --generate-notes lag-syntax-highlighter-$VERSION.vsix
+          gh release create v$npm_package_version --generate-notes lag-syntax-highlighter-$npm_package_version.vsix
         env:
           GH_TOKEN: ${{ github.token }}
 
       - name: Publish Release # upload to Extension Marketplace
         run: | # shell
-          npx vsce publish -p ${{ secrets.VSCE_PAT }} --packagePath lag-syntax-highlighter-$VERSION.vsix
+          npx vsce publish --packagePath lag-syntax-highlighter-$VERSION.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
