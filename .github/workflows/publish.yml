@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies # vsce etc
         run: | # shell
           npm i
-          npm i vsce -g
+          npm i @vscode/vsce -g
 
       - name: Build Extension # build `extension.js` and `*.wasm` files
         run: | # shell
@@ -36,7 +36,7 @@ jobs:
 
       - name: Package Extension # `.vsix` file
         run: | # shell
-          npx vsce package ${{ github.event.inputs.version }}
+          vsce package ${{ github.event.inputs.version }}
           git push --follow-tags
           echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
 
@@ -49,6 +49,6 @@ jobs:
 
       - name: Publish Release # upload to Extension Marketplace
         run: | # shell
-          npx vsce publish --packagePath lag-syntax-highlighter-$VERSION.vsix
+          vsce publish --packagePath lag-syntax-highlighter-$VERSION.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
