@@ -14,6 +14,7 @@ Other themes may work with various successes.
 
 ## Known Issues
 
+commit message commit
 Many.  
 Comments are very very cursed.  
 Will have to code up a language server of some sort to fix it.  
