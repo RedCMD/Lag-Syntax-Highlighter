@@ -19,15 +19,13 @@
 	],
 	"capabilities": {
 		"virtualWorkspaces": {
-			"supported": "limited",
+			"supported": true,
 			"description": "DropEdit doesn't work\nabc\n[link](https://github.com/microsoft/vscode/issues)"
 		},
 		"untrustedWorkspaces": {
-			"supported": "limited",
-			"description": "bla bla\nabcb\n[link](https://github.com/microsoft/vscode/issues)",
-			"restrictedConfigurations": [
-				"editor.insertSpaces"
-			]
+			"supported": true,
+			"description": "Everything works as far as I know.",
+			"restrictedConfigurations": []
 		}
 	},
 	"//extensionDependencies": [
