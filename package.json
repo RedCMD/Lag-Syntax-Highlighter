@@ -17,6 +17,19 @@
 	"keywords": [
 		"haha git borked now >:(  jssss "
 	],
+	"capabilities": {
+		"virtualWorkspaces": {
+			"supported": "limited",
+			"description": "DropEdit doesn't work\nabc\n[link](https://github.com/microsoft/vscode/issues)"
+		},
+		"untrustedWorkspaces": {
+			"supported": "limited",
+			"description": "bla bla\nabcb\n[link](https://github.com/microsoft/vscode/issues)",
+			"restrictedConfigurations": [
+				"editor.insertSpaces"
+			]
+		}
+	},
 	"//extensionDependencies": [
 		"vscode.json-language-features"
 	],
