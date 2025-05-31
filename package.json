@@ -3,7 +3,7 @@
 	"displayName": "Lag Assembly Syntax Highlighter",
 	"publisher": "RedCMD",
 	"description": "Syntax Highlighting for Lag",
-	"version": "6.0.7",
+	"version": "6.0.8",
 	"engines": {
 		"vscode": "^1.92.0"
 	},
