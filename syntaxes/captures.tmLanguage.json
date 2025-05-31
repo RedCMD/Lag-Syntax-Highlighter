@@ -35,7 +35,7 @@
 		{
 			"match": "\\b(true|false)\\b",
 			"captures": {
-				"//": { "object": "string" },
+				"//": "string",
 				"0": { "name": "comment" }
 			}
 		}
