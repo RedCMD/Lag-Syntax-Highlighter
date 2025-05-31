@@ -1,0 +1,44 @@
+{
+	"$schema": "https://raw.githubusercontent.com/RedCMD/TmLanguage-Syntax-Highlighter/main/vscode.tmLanguage.schema.json",
+	"name": "lag",
+	"scopeName": "source.lag",
+	"patterns": [
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": { "0": { "name": "comment" } }
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": [ { "name": "comment" } ]
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": {
+				"comment": "string",
+				"0": { "name": "comment" }
+			}
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": {
+				"comment": [ "array" ],
+				"0": { "name": "comment" }
+			}
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": {
+				"comment": { "object": "string" },
+				"0": { "name": "comment" }
+			}
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"captures": {
+				"//": { "object": "string" },
+				"0": { "name": "comment" }
+			}
+		}
+	],
+	"repository": { }
+}
