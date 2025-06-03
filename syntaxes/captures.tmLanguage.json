@@ -42,6 +42,9 @@
 		},
 		{
 			"foo": "bar"
+		}.
+		{
+			"match": "(a)\\8"
 		}
 	],
 	"repository": { }
