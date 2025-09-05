@@ -9,10 +9,10 @@ on:
         required: false
         type: choice
         options:
+          - ''
           - patch
           - minor
           - major
-          - ''
 
 jobs:
   release:
