@@ -46,7 +46,7 @@ on:
           - B
           - C
       blank_last_required:
-        required: false
+        required: true
         description: Blank_Last_Required
         type: choice
         options:
@@ -55,7 +55,7 @@ on:
           - C
           - ''
       blank_first_required:
-        required: false
+        required: true
         description: Blank_First_Required
         type: choice
         options:
@@ -64,7 +64,7 @@ on:
           - B
           - C
       blank_middle_required:
-        required: false
+        required: true
         description: Blank_Middle_Required
         type: choice
         options:
@@ -73,7 +73,7 @@ on:
           - ''
           - C
       default_blank_last_required:
-        required: false
+        required: true
         description: Default_Blank_Last_Required
         default: A
         type: choice
@@ -83,6 +83,53 @@ on:
           - C
           - ''
       default_blank_first_required:
+        required: true
+        description: Default_Blank_First_Required
+        default: A
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
+      blank_last_required_false:
+        required: false
+        description: Blank_Last_Required
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      blank_first_required_false:
+        required: false
+        description: Blank_First_Required
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
+      blank_middle_required_false:
+        required: false
+        description: Blank_Middle_Required
+        type: choice
+        options:
+          - A
+          - B
+          - ''
+          - C
+      default_blank_last_required_false:
+        required: false
+        description: Default_Blank_Last_Required
+        default: A
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      default_blank_first_required_false:
         required: false
         description: Default_Blank_First_Required
         default: A
@@ -111,3 +158,8 @@ jobs:
           echo blank_middle_required: ${{ github.event.inputs.blank_middle_required }}
           echo default_blank_last_required: ${{ github.event.inputs.default_blank_last_required }}
           echo default_blank_first_required: ${{ github.event.inputs.default_blank_first_required }}
+          echo blank_last_required_false: ${{ github.event.inputs.blank_last_required_false }}
+          echo blank_first_required_false: ${{ github.event.inputs.blank_first_required_false }}
+          echo blank_middle_required_false: ${{ github.event.inputs.blank_middle_required_false }}
+          echo default_blank_last_required_false: ${{ github.event.inputs.default_blank_last_required_false }}
+          echo default_blank_first_required_false: ${{ github.event.inputs.default_blank_first_required_false }}
