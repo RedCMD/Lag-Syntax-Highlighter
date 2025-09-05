@@ -1,0 +1,61 @@
+name: Echo broken Github
+
+on:
+  workflow_dispatch:
+    inputs:
+      blank_last:
+        description: Blank_Last
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      blank_first:
+        description: Blank_First
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
+      blank_middle:
+        description: Blank_middle
+        type: choice
+        options:
+          - A
+          - B
+          - ''
+          - C
+      default_blank_last:
+        description: Default_Blank_Last
+        default: A
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      default_blank_first:
+        description: Default_Blank_First
+        default: A
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
+
+jobs:
+  release:
+    runs_on: ubuntu_latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Echo broken Github
+        run: |
+          echo blank_last: ${{ github.event.inputs.blank_last }}
+          echo blank_first: ${{ github.event.inputs.blank_first }}
+          echo blank_middle: ${{ github.event.inputs.blank_middle }}
+          echo default_blank_last: ${{ github.event.inputs.default_blank_last }}
+          echo default_blank_first: ${{ github.event.inputs.default_blank_first }}
