@@ -5,12 +5,13 @@ on:
     inputs:
       version:
         description: Version
+        default: minor
         type: choice
         options:
-          - ''
           - patch
           - minor
           - major
+          - ''
 
 jobs:
   release:
