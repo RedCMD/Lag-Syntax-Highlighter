@@ -7,10 +7,10 @@ on:
         description: Version
         type: choice
         options:
+          - ''
           - patch
           - minor
           - major
-          - ''
 
 jobs:
   release:
