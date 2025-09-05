@@ -45,6 +45,53 @@ on:
           - A
           - B
           - C
+      blank_last_required:
+        required: false
+        description: Blank_Last_Required
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      blank_first_required:
+        required: false
+        description: Blank_First_Required
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
+      blank_middle_required:
+        required: false
+        description: Blank_Middle_Required
+        type: choice
+        options:
+          - A
+          - B
+          - ''
+          - C
+      default_blank_last_required:
+        required: false
+        description: Default_Blank_Last_Required
+        default: A
+        type: choice
+        options:
+          - A
+          - B
+          - C
+          - ''
+      default_blank_first_required:
+        required: false
+        description: Default_Blank_First_Required
+        default: A
+        type: choice
+        options:
+          - ''
+          - A
+          - B
+          - C
 
 jobs:
   release:
@@ -59,3 +106,8 @@ jobs:
           echo blank_middle: ${{ github.event.inputs.blank_middle }}
           echo default_blank_last: ${{ github.event.inputs.default_blank_last }}
           echo default_blank_first: ${{ github.event.inputs.default_blank_first }}
+          echo blank_last_required: ${{ github.event.inputs.blank_last_required }}
+          echo blank_first_required: ${{ github.event.inputs.blank_first_required }}
+          echo blank_middle_required: ${{ github.event.inputs.blank_middle_required }}
+          echo default_blank_last_required: ${{ github.event.inputs.default_blank_last_required }}
+          echo default_blank_first_required: ${{ github.event.inputs.default_blank_first_required }}
