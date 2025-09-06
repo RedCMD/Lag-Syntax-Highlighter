@@ -22,9 +22,9 @@ jobs:
       - name: Echo broken Github
         run: | # shell
           echo ${{ github.event.inputs.version }}
-          echo "verison: ${{ github.event.inputs.version }}"
+          echo "version: ${{ github.event.inputs.version }}"
           if [ "${{ github.event.inputs.version }}" = "keep" ]; then
-            echo "verison"
+            echo "version"
           else
-            echo "verison: ${{ github.event.inputs.verison }}"
+            echo "version: ${{ github.event.inputs.version }}"
           fi
