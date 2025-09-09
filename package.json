@@ -3,7 +3,7 @@
 	"displayName": "Tester Syntax Highlighting",
 	"publisher": "RedCMD",
 	"description": "Syntax Highlighting for Lag",
-	"version": "6.5.0",
+	"version": "6.5.1",
 	"engines": {
 		"vscode": "^1.92.0"
 	},
