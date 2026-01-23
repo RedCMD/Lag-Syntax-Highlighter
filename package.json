@@ -1,6 +1,6 @@
 {
 	"name": "lag-syntax-highlighter",
-	"displayName": "Tester Syntax Highlighting",
+	"displayName": "Lag Assembly Syntax Highlighter",
 	"publisher": "RedCMD",
 	"description": "Syntax Highlighting for Lag",
 	"version": "6.5.2",
