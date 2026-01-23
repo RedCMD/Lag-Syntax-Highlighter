@@ -30,10 +30,10 @@ jobs:
 
       - name: Setup Github Actions # allow use of `git push`
         run: | # shell
-          git config --global user.name "RedCMD"
-          git config --global user.email "theredcmd@gmail.com"
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
           git add .
-          git diff-index --quiet HEAD || git commit -m "Sync Github Actions"
+          git diff-index --quiet HEAD || git commit -m "Sync Github Actions" || exit 0
 
       - name: Package Extension # `.vsix` file
         run: | # shell
