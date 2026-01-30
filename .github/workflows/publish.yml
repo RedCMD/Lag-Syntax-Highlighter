@@ -67,6 +67,6 @@ jobs:
 
       - name: Publish Release # upload to Extension Marketplace
         run: | # shell
-          vsce publish --packagePath lag-syntax-highlighter-$VERSION.vsix
+          npm run publish --- --packagePath lag-syntax-highlighter-$VERSION.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
