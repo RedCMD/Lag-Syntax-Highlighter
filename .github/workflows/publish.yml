@@ -49,7 +49,7 @@ jobs:
         run: | # shell
           if [ "${{ github.event.inputs.version }}" = "keep" ]; then
             npm run package
-          else if [ "${{ github.event.inputs.version }}" = "" ]; then
+          elif [ "${{ github.event.inputs.version }}" = "" ]; then
             npm run package --- patch --pre-release
           else
             npm run package --- ${{ github.event.inputs.version }}
