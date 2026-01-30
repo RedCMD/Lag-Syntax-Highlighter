@@ -158,7 +158,7 @@
 			{
 				"language": "ab",
 				"scopeName": "source.redcmd.syntax.ab",
-				"path": "./syntaxes/ab.tmLanguage.json"
+				"path": "./syntaxes/AB.tmLanguage.json"
 			},
 			{
 				"language": "cd",
