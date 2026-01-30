@@ -1,0 +1,6 @@
+>z..ddddddsdfd
+#^^^^^^^^^^^^^ source.redcmd.syntax.lag string
+>dd
+#^^ source.redcmd.syntax.lag string
+>ABC
+#^^^ source.redcmd.syntax.lag string

@@ -35,6 +35,8 @@
 	"main": "./out/extension.js",
 	"browser": "./out/web/extension.js",
 	"scripts": {
+		"package": "vsce package",
+		"publish": "vsce publish",
 		"build": "npm run compile && npm run compile-web",
 		"//build": "npm run compile && npm run compile-web && npm run generate-wasm",
 		"watch": "tsc -watch -p ./",
@@ -42,6 +44,9 @@
 		"compile": "tsc -p ./",
 		"compile-web": "webpack --no-devtool --no-watch --mode production",
 		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm",
+		"test": "npm run test:grammar",
+		"test:grammar": "vscode-tmgrammar-snap ./syntaxes/*.lag",
+		"test:grammar:update": "npm run test:grammar -- --updateSnapshot",
 		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
 	},
 	"contributes": {
@@ -225,24 +230,21 @@
 			}
 		]
 	},
-	"dependencies": {
+	"//dependencies": {
 		"vscode-oniguruma": "1.7.0",
-		"web-tree-sitter": "^0.23.0"
+		"web-tree-sitter": "^0.26.3"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.92.0",
-		"@vscode/test-web": "^0.0.53",
+		"@types/vscode": "^1.108.1",
+		"@vscode/test-web": "^0.0.78",
+		"@vscode/vsce": "^3.7.1",
 		"path-browserify": "^1.0.1",
-		"tree-sitter-cli": "^0.23.0",
-		"ts-loader": "^9.5.1",
-		"typescript": "^5.5.4",
-		"webpack": "^5.94.0",
-		"webpack-cli": "^5.1.4"
-	},
-	"__metadata": {
-		"id": "4a6a34e3-1bcd-4782-ab35-d298df305cba",
-		"publisherDisplayName": "RedCMD",
-		"publisherId": "6d229866-9775-4c10-9f86-f22eaa70eb66",
-		"isPreReleaseVersion": false
+		"textmate-grammar-test": "^0.3.3",
+		"tree-sitter-cli": "^0.26.3",
+		"ts-loader": "^9.5.4",
+		"typescript": "^5.9.3",
+		"vscode-tmgrammar-test": "^0.1.3",
+		"webpack": "^5.104.1",
+		"webpack-cli": "^6.0.1"
 	}
 }

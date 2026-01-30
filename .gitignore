@@ -1,7 +1,11 @@
 .git
+out
 _test
 node_modules
-out/
+.vscode-test
+.vscode-test-web
+.test-extensions
+.test-resources
 
 *.vsix
 *.vsixmanifest

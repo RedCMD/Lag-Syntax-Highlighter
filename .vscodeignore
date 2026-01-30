@@ -1,6 +1,7 @@
 .github/**
 .git/**
 .vscode/**
+
 _test/**
 documentation/**
 
