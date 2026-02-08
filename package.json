@@ -45,12 +45,12 @@
 		"compile-web": "webpack --no-devtool --no-watch --mode production",
 		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm",
 		"test": "npm run test:grammar",
-		"test:grammar": "textmate-grammar-snap ./syntaxes/tests/external --scope source.external --grammar ./syntaxes/tests/grammars/*.tmLanguage.json",
+		"test:grammar": "textmate-grammar-snap ./syntaxes/tests/JSON/*.* --scope source.textmate-grammar-snap --grammar ./syntaxes/tests/grammars/*.tmLanguage.json",
 		"test:grammar:update": "npm run test:grammar -- --updateSnapshot",
 		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
 	},
 	"contributes": {
-		"languages": [
+		"//languages": [
 			{
 				"id": "test_regex",
 				"aliases": [
@@ -131,6 +131,10 @@
 			}
 		],
 		"grammars": [
+			{
+				"scopeName": "source.textmate-grammar-snap",
+				"path": "./syntaxes/textmate-grammar-snap.tmLanguage.json"
+			},
 			{
 				"scopeName": "qt.injection",
 				"path": "./syntaxes/qt_cpp.injection.tmLanguage.json",
