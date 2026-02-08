@@ -45,7 +45,7 @@
 		"compile-web": "webpack --no-devtool --no-watch --mode production",
 		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm",
 		"test": "npm run test:grammar",
-		"test:grammar": "textmate-grammar-snap ./syntaxes/tests/JSON/*.* --scope source.textmate-grammar-snap --grammar './syntaxes/tests/grammars/b.*' './syntaxes/tests/grammars/a.*'",
+		"test:grammar": "textmate-grammar-snap ./syntaxes/tests/JSON/*.* --scope source.textmate-grammar-snap --grammar ./syntaxes/tests/grammars/*.* --grammar './syntaxes/tests/grammars/b.*'",
 		"test:grammar:update": "npm run test:grammar -- --updateSnapshot",
 		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
 	},
