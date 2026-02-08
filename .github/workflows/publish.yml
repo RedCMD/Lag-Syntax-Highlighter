@@ -25,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: >= 22
 
       - name: Install Dependencies # vsce etc
         run: | # shell
