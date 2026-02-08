@@ -3,13 +3,18 @@
 	"name": "textmate-grammar-snap",
 	"scopeName": "source.textmate-grammar-snap",
 	"patterns": [
-		{ "include": "source.external" },
+		{
+			"comment": "https://github.com/microsoft/vscode-textmate/issues/242",
+			"include": "source.shell#_pre-load_"
+		},
 		{ "include": "#repo-item" },
 		{ "include": "#string" },
 		{ "include": "#boolean" }
 	],
 	"repository": {
-		"repo-item": { },
+		"repo-item": {
+			"patterns": [ { "include": "source.shell" } ]
+		},
 		"boolean": {
 			"comment": "`\\b` is a 0-width word boundary. `$1` references capture group 1",
 			"match": "\\b(true|false)\\b",
