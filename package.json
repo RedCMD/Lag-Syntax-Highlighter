@@ -45,7 +45,7 @@
 		"compile-web": "webpack --no-devtool --no-watch --mode production",
 		"generate-wasm": "cd tree-sitter && tree-sitter generate --no-bindings && tree-sitter build --wasm",
 		"test": "npm run test:grammar",
-		"test:grammar": "vscode-tmgrammar-snap ./syntaxes/*.lag",
+		"test:grammar": "textmate-grammar-snap ./syntaxes/external.tmLanguage.json --scope source.external --grammar ./syntaxes/external*.tmLanguage.json",
 		"test:grammar:update": "npm run test:grammar -- --updateSnapshot",
 		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
 	},
@@ -239,7 +239,7 @@
 		"@vscode/test-web": "^0.0.78",
 		"@vscode/vsce": "^3.7.1",
 		"path-browserify": "^1.0.1",
-		"textmate-grammar-test": "^0.3.3",
+		"textmate-grammar-test": "^0.4.2",
 		"tree-sitter-cli": "^0.26.3",
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.3",
