@@ -39,7 +39,7 @@ jobs:
 
       - name: Run Tests # check grammars are working
         run: | # shell
-          npm run open-in-browser
+          npm run open-in-browser --- --headless
 
       # - name: Setup Github Actions # allow use of `git push`
       #   run: | # shell
